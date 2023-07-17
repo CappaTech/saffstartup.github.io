@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="utf8" charset="UTF-8">
+    <meta name="languageBUL" http-equiv="Content-Language" content="bg">
+	<meta name="viewport" content="with=device-width, initial-scale=1.0">
+	<title>Saffron Start-up</title>
+	<link rel="stylesheet" href="indexStyles.css">
+    <link rel="shortcut icon" href="images/logo.png">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+	<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    
+</head>
+<body>
+	<header class="header">
+        <nav id="headBar">
+            <a href="index.html" id="logo">
+                Saffron Hills
+            </a>
+            <div class="nav-links" id="navLinks">
+                <div class="mobile-only">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                </div>
+                <div class="object-container">
+                <ul class="navbox-list">
+                    <li class="navbox"><a href="index.html">Home</a></li>
+                    <li class="navbox"><a href="shop.html">Shop</a></li>
+                    <li class="navbox"><a href="opit1.html">History</a></li>
+                    <li class="navbox"><a href="About me.html">About me</a></li>
+                    <li class="navbox"><a href="#contacts">Social Media</a></li>
+                    <!--<li class="signInbutton"><a href="signIn.html" class="login-button">
+                    </i>Sign In</a>
+                    </li>-->
+                    
+                </ul>
+                </div>
+            </div>	
+            <div class="mobile-only">
+                <i class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: rgb(255, 255, 255); padding-right: 50px;"></i>
+            </div>
+        </nav>
+
+    </header>
+    <div class="big-filler"></div>
+    <!--<section class="body1">
+        <div class="big-filler"></div>
+        <div class="frontPageImageSlider-container">
+            <div class="object-container">
+            <div class="slider-container">
+               <img class="slider-image active" src="images/user-1.jpg" alt="Image 1">
+              <img class="slider-image" src="images/user-2.jpg" alt="Image 2">
+              <img class="slider-image" src="images/user-3.jpg" alt="Image 3">
+            </div>
+            asdastgrgASFASGEGRDG
+        </div>
+    </section>-->
+    <section class="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/pic-1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+            <div class="product-card">
+                <img src="images/pic-2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+            <div class="product-card">
+                <img src="images/pic-3.jpg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+        </div>
+    </section>
+    <section id="contacts">
+        <img src="images/logo.png" class="con-img">
+            <div class="text-title">
+                <p>Contacts</p>
+                <h1>Here are my socials:</h1>
+            </div>	
+            <div class="big-filler"></div> 
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100005128179308" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mladenpetkovv/?hl=bg" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCAXDR4yn6JJTOxh8WTPE0kw" target="_blank"><i class="fa fa-youtube"></i></a>
+                <a href="https://twitter.com/TechCappa" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.twitch.tv/cappatech_ynwa" target="_blank"><i class="fa fa-twitch"></i></a>
+                <a href="https://open.spotify.com/user/21nosok7gsywxir6k43fxophq?si=ZSMF_rIpQyy7LdxpCk4PdQ" target="_blank"><i class="fa fa-spotify"></i></a>
+            </div>	
+            <div class="copyrights">
+                <br><p> All Rights Reserved. 2021<i class="fa fa-copyright"></i></p>
+            </div>
+        </section>
+    <footer>
+        <p><i class="fa fa-copyright"></i> 2023 Saffron Shop. All rights reserved.</p>
+    </footer>
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </button>
+	<script src="indexScript.js"></script>
+</body>
+</html>
