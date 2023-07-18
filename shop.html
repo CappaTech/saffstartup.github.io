@@ -4,7 +4,7 @@
     <title>Your Shop Page</title>
     <meta name="utf8" charset="UTF-8">
     <meta name="languageBUL" http-equiv="Content-Language" content="bg">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	
 	<link rel="stylesheet" href="shopStyles.css">
     <link rel="shortcut icon" href="images/logo.png">
@@ -21,15 +21,15 @@
             </a>
             <div class="nav-links" id="navLinks">
                 <div class="mobile-only">
-                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <i class="fa fa-times" onclick="hideMenu()" style="width: 20px;"></i>
                 </div>
                 <div class="object-container">
                 <ul class="navbox-list">
-                    <li class="navbox"><div class="aHref-Box"><a href="index.html">Home</a></div></li>
-                    <li class="navbox"><a href="opit1.html">History</a></li>
-                    <li class="navbox"><a href="shop.html">Shop</a></li>
-                    <li class="navbox"><a href="About me.html">About me</a></li>
-                    <li class="navbox"><a href="#contacts">Socials</a></li>
+                    <li class="navbox"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li class="navbox"><a href="shop.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a></li>
+                    <li class="navbox"><a href="opit1.html"><i class="fa fa-commenting" aria-hidden="true"></i> Blog</a></li>
+                    <li class="navbox"><a href="About me.html"><i class="fa fa-info" aria-hidden="true"></i> About us</a></li>
+                    <li class="navbox"><a href="#contacts"><i class="fa fa-share-alt" aria-hidden="true"></i> Socials</a></li>
                     <!--<li class="signInbutton"><a href="signIn.html" class="login-button">
                     </i>Sign In</a>
                     </li>-->
@@ -38,13 +38,13 @@
                 </div>
             </div>	
             <div class="mobile-only">
-                <i class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: black; padding-right: 50px;"></i>
+                <i class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: rgb(255, 255, 255); padding-right: 50px;"></i>
             </div>
         </nav>
     </header>
     <section class="cart-section">
         <div id="cart-button">
-            <i class="fa fa-shopping-cart"></i>
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             <span class="cart-count">0</span>
         </div>
         <div id="cart" class="hide"><h1>Cart Items</h1>
@@ -71,8 +71,8 @@
         </div>
     </section>    
     <div class="big-filler"></div>
-    <main>
-        <section class="filters">
+    
+        <!--<section class="filters">
             <h2>Filters</h2>
             <form>
                 <label for="category">Category:</label>
@@ -88,55 +88,57 @@
                 <p id="price-value">$10 - $100</p>
                 <button type="submit">Apply Filters</button>
             </form>
-        </section>
+        </section>-->
         <section class="products">
-            <div class="product">
-                <img src="images/pic-1.jpg" alt="Product Image">
-                <h2>Product 1</h2>
-                <p>Description of Product 1</p>
-                <p class="price">Price: $15.99</p>
-                <button class="add-to-cart">Add to Cart</button>
+            <div class="grid">
+                <div class="product">
+                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <h2>Product 1</h2>
+                    <p>Description of Product 1</p>
+                    <p class="price">Price: $15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+    
+                <div class="product">
+                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <h2>Product 2</h2>
+                    <p>Description of Product 2</p>
+                    <p class="price">Price: $15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/3-pmg.jpg" alt="Product Image">
+                    <h2>Product 3</h2>
+                    <p>Description of Product 3</p>
+                    <p class="price">Price: $15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <h2>Product 4</h2>
+                    <p>Description of Product 4</p>
+                    <p class="price">Price: $15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <h2>Product 5</h2>
+                    <p>Description of Product 5</p>
+                    <p class="price">Price: $15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <h2>Product 6</h2>
+                    <p>Description of Product 6</p>
+                    <p class="price">Price: $15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Add more product items as needed -->
             </div>
-
-            <div class="product">
-                <img src="images/pic-1.jpg" alt="Product Image">
-                <h2>Product 2</h2>
-                <p>Description of Product 2</p>
-                <p class="price">Price: $15.99</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/3-pmg.jpg" alt="Product Image">
-                <h2>Product 3</h2>
-                <p>Description of Product 3</p>
-                <p class="price">Price: $15.99</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/pic-1.jpg" alt="Product Image">
-                <h2>Product 4</h2>
-                <p>Description of Product 4</p>
-                <p class="price">Price: $15.99</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/pic-1.jpg" alt="Product Image">
-                <h2>Product 5</h2>
-                <p>Description of Product 5</p>
-                <p class="price">Price: $15.99</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/pic-1.jpg" alt="Product Image">
-                <h2>Product 6</h2>
-                <p>Description of Product 6</p>
-                <p class="price">Price: $15.99</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            
-            <!-- Add more product items as needed -->
         </section>
-    </main>
+    
     <div class="big-filler"></div>
     <section id="contacts">
         <img src="images/logo.png" class="con-img">
