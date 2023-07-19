@@ -21,12 +21,13 @@
             </a>
             <div class="nav-links" id="navLinks">
                 <div class="mobile-only">
-                    <i class="fa fa-times" onclick="hideMenu()" style="width: 20px;"></i>
+                    <i id="hide-menu-button" class="fa fa-times" onclick="hideMenu()" style="width: 20px;"></i>
                 </div>
                 <div class="object-container">
                 <ul class="navbox-list">
                     <li class="navbox"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                     <li class="navbox"><a href="shop.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a></li>
+                    <li class="navbox"><a href="shop.html"><i class="fa fa-cutlery" aria-hidden="true"></i> Recipes</a></li>
                     <li class="navbox"><a href="opit1.html"><i class="fa fa-commenting" aria-hidden="true"></i> Blog</a></li>
                     <li class="navbox"><a href="About me.html"><i class="fa fa-info" aria-hidden="true"></i> About us</a></li>
                     <li class="navbox"><a href="#contacts"><i class="fa fa-share-alt" aria-hidden="true"></i> Socials</a></li>
@@ -38,7 +39,7 @@
                 </div>
             </div>	
             <div class="mobile-only">
-                <i class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: rgb(255, 255, 255); padding-right: 50px;"></i>
+                <i id="show-menu-button" class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: #855141; padding-right: 50px;"></i>
             </div>
         </nav>
     </header>
@@ -107,7 +108,7 @@
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="product">
-                    <img src="images/3-pmg.jpg" alt="Product Image">
+                    <img src="images/pic-3.jpg" alt="Product Image">
                     <h2>Product 3</h2>
                     <p>Description of Product 3</p>
                     <p class="price">Price: $15.99</p>
