@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');/*font-family: 'Oswald', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');/*font-family: 'Pacifico', cursive;*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap'); /*font-family: 'Poppins', sans-serif;*/
+/*Color Theme ---- Rusty Brown:#855141 Golden Yellow:#FFC000 Deep Orange:#FF8C00 */
 *{
 	margin: 0;
 	padding: 0;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
-#headBar{
+.headBar{
 	position: fixed;
-	background-color: #8b60b7;
+	background: linear-gradient(rgb(255, 255, 255),transparent);
     top: 0;
     left: 0;
     width: 100%;
@@ -18,10 +19,15 @@
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+	transition: background-color 0.3s ease;
 }		
+.headBar.scrolled{
+	background: #FF8C00; /* Background color when scrolled */
+  	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 #logo{
 	font-size: 32px;
-    color: rgb(255, 255, 255);
+    color: #855141;
     text-decoration: none;
     font-weight: 800;
 	font-family: 'Pacifico', cursive;
@@ -47,7 +53,7 @@
 	position: relative;
 } 
 .nav-links ul.navbox-list li.navbox a{
-	color: #ffffff;
+	color: #855141;
 	text-decoration: none;
 	font-size: 28px;
 	font-weight: 500;
@@ -61,7 +67,7 @@ li.navbox a::after{
 	left: 0;
 	width: 0%;
 	height: 2px;
-	background: #ffffff;
+	background: #855141;
 	display: block;
 	margin: auto;
 	transition: 0.5s;
@@ -69,6 +75,7 @@ li.navbox a::after{
 li.navbox a:hover::after{
 	width: 100%;
 }
+/*
 .object-container {
     padding: 10px;	
 }
@@ -110,10 +117,32 @@ li.navbox a:hover::after{
 }
 .login-button i {
 	margin-right: 5px;
+}*/
+#front-page{
+	width: 100%;
+	min-height: 100vh;
+	background: linear-gradient(yellow,#FF8C00);
+}
+#clouds{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.imageCredentials{
+	position: absolute;
+	left: 10px;
+	bottom: 0;
+	text-decoration: none;
+	color: #000000;
 }
 .products {
     padding: 100px 20px;
     text-align: center;
+	background-color: #FFC000;
+	
 }
 
 .products h2 {
@@ -127,10 +156,11 @@ li.navbox a:hover::after{
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 30px;
     margin-top: 30px;
+	
 }
 
 .product-card {
-    background-color: #f8f8f8;
+    background-color: #ffffff;
     padding: 20px;
     text-align: center;
     border-radius: 4px;
@@ -156,8 +186,8 @@ li.navbox a:hover::after{
 .btn {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #FFC107;
-    color: #333;
+    background-color: #855141;
+    color: #FFC000;
     font-weight: 500;
     text-decoration: none;
     border-radius: 4px;
@@ -215,8 +245,8 @@ li.navbox a:hover::after{
 	font-size: 20px;
 }
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #855141;
+    color: #FFC000;
     padding: 20px;
     text-align: center;
 }
@@ -224,14 +254,34 @@ footer {
 footer p {
     font-size: 20px;
 }
+/* Style for the menu overlay */
+#menu-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 99;
+	
+}
+.show {
+	display: block;
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.hide{
+	display: none;
+}
 .scroll-to-top {
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
 	width: 50px;
 	height: 50px;
-	background-color: #007bff;
-	color: #fff;
+	background-color: #855141;
+	
 	border: none;
 	border-radius: 50%;
 	font-size: 18px;
@@ -243,7 +293,7 @@ footer p {
 }
 
 .scroll-to-top:hover {
-	background-color: #0056b3;
+	background-color: #000000;
 }
 
 .small-filler{
@@ -283,7 +333,7 @@ footer p {
 		top: 0;
 		right: -200px;
 		text-align: left;
-		z-index: 2;
+		z-index: 100;
 		transition: 1s;
 	}
 	.navbox-list{
