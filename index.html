@@ -15,18 +15,19 @@
 </head>
 <body>
 	<header class="header">
-        <nav id="headBar">
+        <nav id="headBar" class="headBar">
             <a href="index.html" id="logo">
                 Saffron Hills
             </a>
             <div class="nav-links" id="navLinks">
                 <div class="mobile-only">
-                    <i class="fa fa-times" onclick="hideMenu()" style="width: 20px;"></i>
+                    <i id="hide-menu-button" class="fa fa-times" onclick="hideMenu()" style="width: 20px;"></i>
                 </div>
                 <div class="object-container">
                 <ul class="navbox-list">
                     <li class="navbox"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                     <li class="navbox"><a href="shop.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a></li>
+                    <li class="navbox"><a href="shop.html"><i class="fa fa-cutlery" aria-hidden="true"></i> Recipes</a></li>
                     <li class="navbox"><a href="opit1.html"><i class="fa fa-commenting" aria-hidden="true"></i> Blog</a></li>
                     <li class="navbox"><a href="About me.html"><i class="fa fa-info" aria-hidden="true"></i> About us</a></li>
                     <li class="navbox"><a href="#contacts"><i class="fa fa-share-alt" aria-hidden="true"></i> Socials</a></li>
@@ -38,11 +39,15 @@
                 </div>
             </div>	
             <div class="mobile-only">
-                <i class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: rgb(255, 255, 255); padding-right: 50px;"></i>
+                <i id="show-menu-button" class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: #855141; padding-right: 50px;"></i>
             </div>
         </nav>
-
+        
     </header>
+    <section id="front-page">
+        <img src="images/saffron-nature-mort.jpg" alt="" id="clouds">
+        <a href="https://www.freepik.com/free-vector/watercolor-saffron-flower-illustration_22890649.htm#query=saffron&position=8&from_view=search&track=sph" class="imageCredentials">Image by pikisuperstar on Freepik</a> 
+    </section>
     <div class="big-filler"></div>
     <!--<section class="body1">
         <div class="big-filler"></div>
@@ -102,10 +107,11 @@
         <p><i class="fa fa-copyright"></i> 2023 Saffron Shop. All rights reserved.</p>
     </footer>
     <button class="scroll-to-top" onclick="scrollToTop()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 19V5M5 12l7-7 7 7" />
         </svg>
     </button>
+    <div id="menu-overlay" class="hide"></div>
 	<script src="indexScript.js"></script>
 </body>
 </html>
