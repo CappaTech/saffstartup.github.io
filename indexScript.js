@@ -1,3 +1,5 @@
+const menuOverlay = document.getElementById("menu-overlay");
+
 //
 //Back to the top button function
 //
@@ -29,9 +31,11 @@ var navLinks = document.getElementById("navLinks");
 
 function showMenu(){
 navLinks.style.right = "0";
+menuOverlay.classList.toggle("show")
 }
 function hideMenu(){
 navLinks.style.right = "-200px";
+menuOverlay.classList.remove("show")
 }
 
 //
@@ -55,3 +59,59 @@ function preventHorizontalScroll() {
       }
     });
   }
+
+//
+//Prevent from horizontal scroll
+//
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".headBar");
+  const section = document.querySelector("#front-page"); // Replace "next-section" with the ID of the section you want to scroll to
+
+  // Get the height of the next section
+  const sectionHeight = section.offsetHeight;
+  // Get the current scroll position
+  const scrollPosition = window.scrollY;
+
+  // Add or remove the "scrolled" class based on the scroll position
+  if (scrollPosition >= sectionHeight) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+
+//
+// JavaScript function to toggle scrolling behavior when the button is clicked
+//
+
+function toggleScrollOnClick() {
+  const preventScrollButton = document.getElementById("show-menu-button");
+  const preventScrollButton1 = document.getElementById("hide-menu-button");
+  let isScrollingPrevented = false;
+
+  preventScrollButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (isScrollingPrevented) {
+      document.body.style.overflow = "auto"; // Enable scrolling by setting overflow to 'auto'
+      isScrollingPrevented = false;
+    } else {
+      document.body.style.overflow = "hidden"; // Prevent scrolling by hiding the overflow
+      isScrollingPrevented = true;
+    }
+  });
+  preventScrollButton1.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (isScrollingPrevented) {
+      document.body.style.overflow = "auto"; // Enable scrolling by setting overflow to 'auto'
+      isScrollingPrevented = false;
+    } else {
+      document.body.style.overflow = "hidden"; // Prevent scrolling by hiding the overflow
+      isScrollingPrevented = true;
+    }
+  });
+}
+
+// Call the function to toggle scrolling behavior when the button is clicked
+toggleScrollOnClick();
