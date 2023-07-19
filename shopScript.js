@@ -176,7 +176,17 @@ cartButton.addEventListener("click", function () {
       
               // Update the cart items display
               updateCartItems();
-      
+              // Check if the cart is empty
+              if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "";
+                var emptyCartDiv = document.createElement("div");
+                emptyCartDiv.classList.add("empty-Cart-Message");
+                emptyCartDiv.textContent = "Your cart is empty";
+                cartItemsContainer.appendChild(emptyCartDiv);
+                cartItemsContainer.classList.toggle("show");
+                cartMain.classList.toggle("show");
+                cartOverlay.classList.toggle("show")
+              }
               // Update the cart count
               updateCartCount();
       
@@ -377,3 +387,51 @@ var nextButtons = document.querySelectorAll(".next-button");
     // Add your validation logic here
     return true; // Return true if the step is valid, or false if it's not
   }
+  
+//
+// JavaScript function to toggle scrolling behavior when the button is clicked
+//
+
+function toggleScrollOnClick() {
+  const preventScrollButton = document.getElementById("cart-button");
+  const preventScrollButton2 = document.getElementById("show-menu-button");
+  const preventScrollButton3 = document.getElementById("hide-menu-button");
+  let isScrollingPrevented = false;
+
+  preventScrollButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (isScrollingPrevented) {
+      document.body.style.overflow = "auto"; // Enable scrolling by setting overflow to 'auto'
+      isScrollingPrevented = false;
+    } else {
+      document.body.style.overflow = "hidden"; // Prevent scrolling by hiding the overflow
+      isScrollingPrevented = true;
+    }
+  });
+  preventScrollButton2.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (isScrollingPrevented) {
+      document.body.style.overflow = "auto"; // Enable scrolling by setting overflow to 'auto'
+      isScrollingPrevented = false;
+    } else {
+      document.body.style.overflow = "hidden"; // Prevent scrolling by hiding the overflow
+      isScrollingPrevented = true;
+    }
+  });
+  preventScrollButton3.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (isScrollingPrevented) {
+      document.body.style.overflow = "auto"; // Enable scrolling by setting overflow to 'auto'
+      isScrollingPrevented = false;
+    } else {
+      document.body.style.overflow = "hidden"; // Prevent scrolling by hiding the overflow
+      isScrollingPrevented = true;
+    }
+  });
+}
+
+// Call the function to toggle scrolling behavior when the button is clicked
+toggleScrollOnClick();
