@@ -13,17 +13,17 @@ function scrollToTop() {
 //
 // Front Page Image Slider
 //
-const sliderImages = document.querySelectorAll('.slider-image');
-        let currentSlide = 0;
-
-        function showSlide(n) {
-            sliderImages[currentSlide].classList.remove('active');
-            currentSlide = (n + sliderImages.length) % sliderImages.length;
-            sliderImages[currentSlide].classList.add('active');
-        }
-
-        setInterval(() => showSlide(currentSlide + 1), 5000); // Change slide every 5 seconds
-
+//const sliderImages = document.querySelectorAll('.slider-image');
+//        let currentSlide = 0;
+//
+//        function showSlide(n) {
+//            sliderImages[currentSlide].classList.remove('active');
+//            currentSlide = (n + sliderImages.length) % sliderImages.length;
+//            sliderImages[currentSlide].classList.add('active');
+//        }
+//
+//        setInterval(() => showSlide(currentSlide + 1), 5000); // Change slide every 5 seconds
+//
 //
 // MOBILE ONLY, navLinks menu 
 //
@@ -31,11 +31,11 @@ var navLinks = document.getElementById("navLinks");
 
 function showMenu(){
 navLinks.style.right = "0";
-menuOverlay.classList.toggle("show")
+
 }
 function hideMenu(){
 navLinks.style.right = "-200px";
-menuOverlay.classList.remove("show")
+
 }
 
 //
@@ -61,9 +61,10 @@ function preventHorizontalScroll() {
   }
 
 //
-//Prevent from horizontal scroll
+//Switching background when they are scrolled to a section "in this case #front-page"
 //
 window.addEventListener("scroll", function () {
+  const scrollDownPopUpMessagedocument=document.querySelector(".popup-scroll-down-message");
   const navbar = document.querySelector(".headBar");
   const section = document.querySelector("#front-page"); // Replace "next-section" with the ID of the section you want to scroll to
 
@@ -75,8 +76,10 @@ window.addEventListener("scroll", function () {
   // Add or remove the "scrolled" class based on the scroll position
   if (scrollPosition >= sectionHeight) {
     navbar.classList.add("scrolled");
+    scrollDownPopUpMessagedocument.classList.add("scrolled");
   } else {
     navbar.classList.remove("scrolled");
+    scrollDownPopUpMessagedocument.remove("scrolled");
   }
 });
 
