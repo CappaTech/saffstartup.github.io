@@ -68,15 +68,27 @@ cartButton.addEventListener("click", function () {
     emptyCartDiv.classList.add("empty-Cart-Message");
     emptyCartDiv.textContent = "Your cart is empty";
     cartItemsContainer.appendChild(emptyCartDiv);
-    cartItemsContainer.classList.toggle("show");
-    cartMain.classList.toggle("show");
-    cartOverlay.classList.toggle("show")
+     // Toggle the display of the div
+  if (cartMain.style.display === "none") {
+    cartMain.style.display = "block";
+    cartItemsContainer.style.display = "block";
+    cartOverlay.style.display = "block"; // Show the div
+  } else {
+    cartMain.style.display = "none";
+    cartItemsContainer.style.display = "none";
+    cartOverlay.style.display = "none"; // Hide the div
+  }
   } else {
     // Toggle the display of cart items container
-    cartItemsContainer.classList.toggle("show");
-    cartMain.classList.toggle("show");
-    cartOverlay.classList.toggle("show")
-    
+    if (cartMain.style.display === "none") {
+      cartMain.style.display = "block";
+      cartItemsContainer.style.display = "block";
+      cartOverlay.style.display = "block"; // Show the div
+    } else {
+      cartMain.style.display = "none";
+      cartItemsContainer.style.display = "none";
+      cartOverlay.style.display = "none"; // Hide the div
+    }
   }
 });
 
@@ -93,9 +105,15 @@ cartButton.addEventListener("click", function () {
           cartItemsContainer.appendChild(emptyCartDiv);
       
           // Hide the cart items container
-          cartItemsContainer.classList.remove("show");
-          cartMain.classList.remove("show");
-          cartOverlay.classList.remove("show");
+          if (cartMain.style.display === "none") {
+            cartMain.style.display = "block";
+            cartItemsContainer.style.display = "block";
+            cartOverlay.style.display = "block"; // Show the div
+          } else {
+            cartMain.style.display = "none";
+            cartItemsContainer.style.display = "none";
+            cartOverlay.style.display = "none"; // Hide the div
+          }
         } else {
           // Iterate over the cart array and display each item
           cart.forEach(function (item, index) {
@@ -145,11 +163,7 @@ cartButton.addEventListener("click", function () {
             
             increaseButton.addEventListener("click", function () {
               // Increase the quantity
-              if (!isNaN(item.quantity)) {
-                item.quantity = parseInt(item.quantity, 10) + 1;
-              } else {
-                item.quantity = 1;
-              }
+              item.quantity++;
               updateCartItems();
               updateCartCount();
               saveCartData();
@@ -183,9 +197,15 @@ cartButton.addEventListener("click", function () {
                 emptyCartDiv.classList.add("empty-Cart-Message");
                 emptyCartDiv.textContent = "Your cart is empty";
                 cartItemsContainer.appendChild(emptyCartDiv);
-                cartItemsContainer.classList.toggle("show");
-                cartMain.classList.toggle("show");
-                cartOverlay.classList.toggle("show")
+                if (cartMain.style.display === "none") {
+                  cartMain.style.display = "block";
+                  cartItemsContainer.style.display = "block";
+                  cartOverlay.style.display = "block"; // Show the div
+                } else {
+                  cartMain.style.display = "none";
+                  cartItemsContainer.style.display = "none";
+                  cartOverlay.style.display = "none"; // Hide the div
+                }
               }
               // Update the cart count
               updateCartCount();
@@ -273,55 +293,55 @@ updateCartCount();
 //
 //Price range slide bar
 //
-
-document.addEventListener("DOMContentLoaded", function() {
-// Get the price range input and price value element
-var priceRange = document.getElementById("price");
-var priceValue = document.getElementById("price-value");
-
-// Update the price value when the price range input value changes
-priceRange.addEventListener("input", function() {
-    var minPrice = 10; // Minimum price value
-    var maxPrice = 100; // Maximum price value
-    var selectedPrice = parseInt(priceRange.value);
-
-    // Calculate the actual price range based on the input value
-    var actualMinPrice = minPrice + Math.floor((selectedPrice / 100) * (maxPrice - minPrice));
-     var actualMaxPrice = maxPrice;
-
-    // Update the price value element with the selected price range
-     priceValue.textContent = "$" + actualMinPrice + " - $" + actualMaxPrice;
- });
-});
-
+//
+//document.addEventListener("DOMContentLoaded", function() {
+//// Get the price range input and price value element
+//var priceRange = document.getElementById("price");
+//var priceValue = document.getElementById("price-value");
+//
+//// Update the price value when the price range input value changes
+//priceRange.addEventListener("input", function() {
+//    var minPrice = 10; // Minimum price value
+//    var maxPrice = 100; // Maximum price value
+//    var selectedPrice = parseInt(priceRange.value);
+//
+//    // Calculate the actual price range based on the input value
+//    var actualMinPrice = minPrice + Math.floor((selectedPrice / 100) * (maxPrice - minPrice));
+//     var actualMaxPrice = maxPrice;
+//
+//    // Update the price value element with the selected price range
+//     priceValue.textContent = "$" + actualMinPrice + " - $" + actualMaxPrice;
+// });
+//});
+//
 //
 // Sector Filters
 //
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Get the form and apply filters button
-    var form = document.querySelector("form");
-    var applyFiltersButton = document.querySelector("#apply-filters");
-
-    // Add event listener to the "Apply Filters" button
-    applyFiltersButton.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Get the selected category and price range values
-        var selectedCategory = document.querySelector("#category").value;
-        var selectedPriceRange = document.querySelector("#price").value;
-
-        // Perform filtering logic based on the selected values
-        // ...
-        // Replace this code with your own filtering logic
-        // For example, you can hide/show products based on category and price range
-
-        // Display filtered results or update the page accordingly
-        // ...
-        // Replace this code with your own code to display filtered results
-    });
-});
-
+//
+//document.addEventListener("DOMContentLoaded", function() {
+//    // Get the form and apply filters button
+//    var form = document.querySelector("form");
+//    var applyFiltersButton = document.querySelector("#apply-filters");
+//
+//    // Add event listener to the "Apply Filters" button
+//    applyFiltersButton.addEventListener("click", function(event) {
+//        event.preventDefault(); // Prevent form submission
+//
+//        // Get the selected category and price range values
+//        var selectedCategory = document.querySelector("#category").value;
+//        var selectedPriceRange = document.querySelector("#price").value;
+//
+//        // Perform filtering logic based on the selected values
+//        // ...
+//        // Replace this code with your own filtering logic
+//        // For example, you can hide/show products based on category and price range
+//
+//        // Display filtered results or update the page accordingly
+//        // ...
+//        // Replace this code with your own code to display filtered results
+//    });
+//});
+//
 //
 //Scroll to the top function
 //
@@ -349,6 +369,13 @@ var navLinks = document.getElementById("navLinks");
 		speedAsDuration: true
 		});
 
+
+//
+// JavaScript function to toggle scrolling behavior when the button is clicked
+//
+
+
+
 //
 //Checkout Page
 //
@@ -357,42 +384,37 @@ var navLinks = document.getElementById("navLinks");
 //next button function
 //
 // Get the "Next" button elements
-var nextButtons = document.querySelectorAll(".next-button");
-
-// Add event listeners to each "Next" button
-  nextButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      // Find the current active step
-      var currentStep = button.closest(".step");
-        
-      // Find the next step
-      var nextStep = currentStep.nextElementSibling;
-        
-      // Validate the current step (if needed)
-      var isValid = validateStep(currentStep);
-        
-      // If the current step is valid, move to the next step
-      if (isValid) {
-        // Hide the current step
-        currentStep.classList.remove("active");
-          
-        // Show the next step
-        nextStep.classList.add("active");
-      }
-    });
-  });
-
-  // Function to validate the current step (placeholder, replace with your validation logic)
-  function validateStep(step) {
-    // Add your validation logic here
-    return true; // Return true if the step is valid, or false if it's not
-  }
-  
+//var nextButtons = document.querySelectorAll(".next-button");
 //
-// JavaScript function to toggle scrolling behavior when the button is clicked
+//// Add event listeners to each "Next" button
+//  nextButtons.forEach(function (button) {
+//    button.addEventListener("click", function () {
+//      // Find the current active step
+//      var currentStep = button.closest(".step");
+//        
+//      // Find the next step
+//      var nextStep = currentStep.nextElementSibling;
+//        
+//      // Validate the current step (if needed)
+//      var isValid = validateStep(currentStep);
+//        
+//      // If the current step is valid, move to the next step
+//      if (isValid) {
+//        // Hide the current step
+//        currentStep.classList.remove("active");
+//          
+//        // Show the next step
+//        nextStep.classList.add("active");
+//      }
+//    });
+//  });
 //
-
-function toggleScrollOnClick() {
+//  // Function to validate the current step (placeholder, replace with your validation logic)
+//  function validateStep(step) {
+//    // Add your validation logic here
+//    return true; // Return true if the step is valid, or false if it's not
+//  }
+//  function toggleScrollOnClick() {
   const preventScrollButton = document.getElementById("cart-button");
   const preventScrollButton2 = document.getElementById("show-menu-button");
   const preventScrollButton3 = document.getElementById("hide-menu-button");
@@ -431,7 +453,3 @@ function toggleScrollOnClick() {
       isScrollingPrevented = true;
     }
   });
-}
-
-// Call the function to toggle scrolling behavior when the button is clicked
-toggleScrollOnClick();
