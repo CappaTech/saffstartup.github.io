@@ -10,7 +10,7 @@
 
 .headBar{
 	position: fixed;
-	background: linear-gradient(rgb(255, 255, 255),transparent);
+	background: linear-gradient(rgb(255, 255, 255), transparent);
     top: 0;
     left: 0;
     width: 100%;
@@ -66,13 +66,16 @@ li.navbox a::after{
 	top: 100%;
 	left: 0;
 	width: 0%;
-	height: 2px;
+	height: 3px;
 	background: #855141;
 	display: block;
 	margin: auto;
 	transition: 0.5s;
 }
 li.navbox a:hover::after{
+	width: 100%;
+}
+li.navbox a.active-page::after{
 	width: 100%;
 }
 /*
@@ -121,9 +124,8 @@ li.navbox a:hover::after{
 #front-page{
 	width: 100%;
 	min-height: 100vh;
-	background: linear-gradient(yellow,#FF8C00);
 }
-#clouds{
+#saffron-nature-mort{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -295,7 +297,33 @@ footer p {
 .scroll-to-top:hover {
 	background-color: #000000;
 }
-
+.popup-scroll-down-message {
+	position: fixed;
+	bottom: 25px;
+	left: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+	animation: fadeInOut 2s infinite alternate;
+  }
+  
+  /* Apply styles to the text */
+  .popup-text {
+	font-size: 18px;
+  }
+  /* Keyframes for fade in and fade out effect */
+  @keyframes fadeInOut {
+	0% {
+	  opacity: 0;
+	}
+	100% {
+	  opacity: 1;
+	}
+  }
 .small-filler{
 	margin: 0 auto;
 	width: 75%;
@@ -349,6 +377,9 @@ footer p {
 	}
 	li.navbox a:hover::after{
 		width: 0%;
+	}
+	.imageCredentials{
+		font-size: 12px;
 	}
 	.scroll-to-top {
 		bottom: 10px;
@@ -556,3 +587,5 @@ places
         }
  }
  */       
+ 
+  
