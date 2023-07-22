@@ -9,6 +9,26 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
+//
+//Function for poping up the scroll-to-top button
+//
+window.addEventListener("scroll", function () {
+  const toTheTop = document.getElementById("to-the-top");
+  let section = document.getElementById("front-page"); 
+
+  // Get the height of the next section
+  const sectionHeight = section.offsetHeight;
+  // Get the current scroll position
+  const scrollPosition = window.scrollY;
+
+  // Add or remove the "scrolled" class based on the scroll position
+  if (scrollPosition >= sectionHeight) {
+    toTheTop.style.display = "block";
+  } else {
+    toTheTop.style.display = "none";
+  }
+});
+
 
 //
 // Front Page Image Slider
@@ -66,7 +86,8 @@ function preventHorizontalScroll() {
 window.addEventListener("scroll", function () {
   const scrollDownPopUpMessagedocument=document.querySelector(".popup-scroll-down-message");
   const navbar = document.querySelector(".headBar");
-  const section = document.querySelector("#front-page"); // Replace "next-section" with the ID of the section you want to scroll to
+  let section = document.querySelector("#front-page"); 
+
 
   // Get the height of the next section
   const sectionHeight = section.offsetHeight;
@@ -82,7 +103,6 @@ window.addEventListener("scroll", function () {
     scrollDownPopUpMessagedocument.remove("scrolled");
   }
 });
-
 //
 // JavaScript function to toggle scrolling behavior when the button is clicked
 //
@@ -90,6 +110,7 @@ window.addEventListener("scroll", function () {
 function toggleScrollOnClick() {
   const preventScrollButton = document.getElementById("show-menu-button");
   const preventScrollButton1 = document.getElementById("hide-menu-button");
+  const preventScrollButton4 = document.querySelector(".navbox-socials-button");
   let isScrollingPrevented = false;
 
   preventScrollButton.addEventListener("click", function (event) {
@@ -112,6 +133,44 @@ function toggleScrollOnClick() {
     } else {
       document.body.style.overflow = "hidden"; // Prevent scrolling by hiding the overflow
       isScrollingPrevented = true;
+    }
+  });
+  //The following code is for navilinks socials button which triggers this function
+  preventScrollButton4.addEventListener("click", function (event) {
+    event.preventDefault();
+    function isMobileDevice() {
+      return window.innerWidth <= 768; // You can adjust the width threshold for your use case
+    }
+    if (isMobileDevice()) {
+      if (isScrollingPrevented) {
+        document.body.style.overflow = "auto"; // Enable scrolling by setting overflow to 'auto'
+        isScrollingPrevented = false;
+      } else {
+        document.body.style.overflow = "hidden"; // Prevent scrolling by hiding the overflow
+        isScrollingPrevented = true;
+      }
+      hideMenu();
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        
+        if (section) {
+          section.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      }
+      scrollToSection('contacts');
+    }else{
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        
+        if (section) {
+          section.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      }
+      scrollToSection('contacts');
     }
   });
 }
