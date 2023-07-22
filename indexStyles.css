@@ -22,8 +22,8 @@
 	transition: background-color 0.3s ease;
 }		
 .headBar.scrolled{
-	background: #FF8C00; /* Background color when scrolled */
-  	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	background: #FFC000; /* Background color when scrolled */
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 #logo{
 	font-size: 32px;
@@ -143,7 +143,7 @@ li.navbox a.active-page::after{
 .products {
     padding: 100px 20px;
     text-align: center;
-	background-color: #FFC000;
+	background-color: #ffffff;
 	
 }
 
@@ -227,24 +227,45 @@ li.navbox a.active-page::after{
 	text-align: center;
 }
 .social-links .fa{
-	height: 40px;
-	width: 40px;
-	font-size: 20px;
-	line-height: 40px;
-	border: 1px solid #009688;
+	height: 50px;
+	width: 50px;
+	font-size: 30px;
+	line-height: 50px;
+	border: 1px solid #855141;
+	border-radius: 20px;
 	margin: 40px 5px 0;
-	color: #009688;
+	color: #855141;
 	cursor: pointer;
 	transition: .5s;
 }
 .social-links .fa:hover{
-	background: #009688;
+	background: #FFC000;
 	color: #fff;
 	transform: translateY(-7px);
 }
-.copyrights p{
+.terms-and-conditions{
+	position: relative;
+	margin: auto;
+	width: 250px;
+	border: 1px solid #855141;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: .5s;
+}
+.terms-and-conditions p{
 	text-align: center;
 	font-size: 20px;
+	color: #855141;
+}
+.terms-and-conditions a{
+	text-decoration: none;
+}
+.terms-and-conditions:hover{
+	background: #FFC000;
+	transform: translateY(-7px);
+}
+.terms-and-conditions p:hover{
+	color: #fff;
 }
 footer {
     background-color: #855141;
@@ -256,17 +277,7 @@ footer {
 footer p {
     font-size: 20px;
 }
-/* Style for the menu overlay */
-#menu-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 99;
-	
-}
+
 .show {
 	display: block;
 	opacity: 1;
@@ -276,6 +287,9 @@ footer p {
 .hide{
 	display: none;
 }
+#to-the-top{
+	display: none;
+}
 .scroll-to-top {
 	position: fixed;
 	bottom: 20px;
@@ -283,11 +297,10 @@ footer p {
 	width: 50px;
 	height: 50px;
 	background-color: #855141;
-	
+	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
 	border: none;
 	border-radius: 50%;
 	font-size: 18px;
-	line-height: 50px;
 	text-align: center;
 	cursor: pointer;
 	z-index: 9999;
@@ -381,9 +394,16 @@ footer p {
 	.imageCredentials{
 		font-size: 12px;
 	}
+	.social-links .fa:hover{
+		transform: translateY(0px);
+	}
+	.terms-and-conditions:hover{
+		transform: translateY(0px);
+	}
 	.scroll-to-top {
 		bottom: 10px;
 		right: 10px;
+		z-index: 99;
 	}
 }
 
