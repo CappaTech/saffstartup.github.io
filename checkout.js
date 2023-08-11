@@ -1,3 +1,22 @@
+//
+//Navigation Bar functions for mobile + Smooth scrolling function
+//
+
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+navLinks.style.right = "0";
+
+}
+function hideMenu(){
+navLinks.style.right = "-200px";
+
+}
+var scroll = new SmoothScroll('a[href*="#"]', {
+speed: 1000,
+speedAsDuration: true
+});
+
 // Retrieve cart data from local storage
 var cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -27,24 +46,28 @@ function updateCheckoutItems() {
     itemPrice.textContent = (item.price * item.quantity).toFixed(2) + "лв.";
 
     var itemQuantity = document.createElement("input");
-itemQuantity.type = "number";
-itemQuantity.value = item.quantity;
-itemQuantity.min = 1;
-itemQuantity.max = 10;
-
-// Add event listener to prevent typing numbers directly
-itemQuantity.addEventListener("input", function () {
-  var enteredValue = itemQuantity.value;
-
-  // Ensure the entered value is a number between 1 and 10
-  if (isNaN(enteredValue) || enteredValue < 1 || enteredValue > 10) {
-    // Reset the input value to the previous valid value
+    itemQuantity.type = "number";
     itemQuantity.value = item.quantity;
-  }
-});
+    itemQuantity.id = "quantity";
+    itemQuantity.name = "quantity";
+    itemQuantity.min = 1;
+    itemQuantity.max = 10;
+    itemQuantity.step = 1;
+
+   
+    itemQuantity.addEventListener("change", function () {
+      if (isNaN(itemQuantity.value) || itemQuantity.value < 1) {
+        itemQuantity.value = 1;
+      }else if (itemQuantity.value > 10){
+        itemQuantity.value = 10;
+      }
+      
+
+    });
 
 itemQuantity.addEventListener("change", function () {
   item.quantity = parseInt(itemQuantity.value);
+  itemPrice.textContent = (item.price * item.quantity).toFixed(2) + "лв.";
   saveCartData();
   calculateTotalPrice();
   updateCartCount();
@@ -121,10 +144,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const stepSummary = document.getElementById("step-summary");
   
     // Add click event listeners to the buttons
-    btnToPayment.addEventListener("click", function () {
-      stepPayment.classList.remove("hidden");
-      btnToPayment.style.display="none";
-      btnToSummary.style.display="none";
+    btnToPayment.addEventListener("click", function (item) {
+      if(cart.length > 0){
+        stepPayment.classList.remove("hidden");
+        btnToPayment.style.display="none";
+        btnToSummary.style.display="none";
+      }else{
+        alert("There are no products added into the cart...");
+        window.location.href = "shop.html";
+      }
+      
     });
   
     btnToCardPayment.addEventListener("click", function () {
@@ -238,18 +267,18 @@ function checkCheckboxState2() {
     });
   });
   
-//
-//Navigation Bar functions for mobile + Smooth scrolling function
-//
 
-var navLinks = document.getElementById("navLinks");
-function showMenu(){
-navLinks.style.right = "0";
+
+//
+//Prevent from horizontal scroll
+//
+function preventHorizontalScroll() {
+  // Listen for the scroll event
+  window.addEventListener("scroll", function() {
+    // Check if the scroll position has changed horizontally
+    if (window.pageXOffset !== 0) {
+      // If the scroll position is not at the leftmost, reset it to 0
+      window.scrollTo(0, window.pageYOffset);
+    }
+  });
 }
-function hideMenu(){
-navLinks.style.right = "-200px";
-}
-var scroll = new SmoothScroll('a[href*="#"]', {
-speed: 1000,
-speedAsDuration: true
-});
