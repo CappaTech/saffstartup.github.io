@@ -443,7 +443,9 @@ li.navbox a:hover::after{
   background-color: #000000;
   color: #ffffff;
 }
-
+main {
+  padding: 10px;
+}
 .grid-form-container2,
 .grid-container,
 .grid-form-container{
