@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get all checkout step sections
     const stepBilling = document.getElementById("step-billing");
     const stepPayment = document.getElementById("step-payment");
-    const stepCardPayment = document.getElementById("payment-with-card");
+    const stepCardPayment = document.getElementById("form");
     const stepSummary = document.getElementById("step-summary");
   
     // Add click event listeners to the buttons
