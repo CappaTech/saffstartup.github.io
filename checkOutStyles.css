@@ -189,6 +189,7 @@ main {
   text-align: right; /* Adjust input width as needed */
   margin-left: auto; /* Push the input to the right */
 }
+
 .cart-total{
   width: 150px;
   padding: 2px;
