@@ -106,6 +106,7 @@ li.navbox a.active-page::after{
 	font-size: 14px;
 }
 main {
+  width: auto;
   min-height: 86vh;
   padding: 2rem;
   background-color: #fff;
@@ -182,7 +183,6 @@ main {
 .checkout-item-price-p{
   text-align: center;
   background-color: #FFC000;
-  margin-left: auto;
 }
 .checkout-item input {
   width: 80px;
@@ -443,8 +443,8 @@ li.navbox a:hover::after{
   background-color: #000000;
   color: #ffffff;
 }
-main {
-  padding: 10px;
+.checkout-item {
+  display: block;
 }
 .grid-form-container2,
 .grid-container,
