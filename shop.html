@@ -14,7 +14,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 </head>
 <body>
-    <header class="header">
+    <header class="header" data-select="restrict">
         <nav id="headBar">
             <a href="index.html" id="logo">
                 Saffron Hills
@@ -43,7 +43,7 @@
             </div>
         </nav>
     </header>
-    <section class="cart-section">
+    <section class="cart-section" data-select="restrict">
         <div id="cart-button">
             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             <span class="cart-count">0</span>
@@ -61,7 +61,7 @@
         <div id="cart-overlay" class="hide"></div>
     </section>    
     <div class="big-filler"></div>
-    
+    <div class="medium-filler"></div>
         <!--<section class="filters">
             <h2>Filters</h2>
             <form>
@@ -82,47 +82,33 @@
         <section class="products">
             <div class="grid">
                 <div class="product">
-                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <img src="images/pic-1.jpg" alt="Product Image" data-select="restrict">
                     <h2>Product 1</h2>
                     <p>Description of Product 1</p>
                     <p class="price">Price: $15.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-select="restrict">Add to Cart</button>
                 </div>
     
                 <div class="product">
-                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <img src="images/pic-1.jpg" alt="Product Image"data-select="restrict">
                     <h2>Product 2</h2>
                     <p>Description of Product 2</p>
                     <p class="price">Price: $15.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-select="restrict">Add to Cart</button>
                 </div>
                 <div class="product">
-                    <img src="images/pic-3.jpg" alt="Product Image">
+                    <img src="images/pic-3.jpg" alt="Product Image"data-select="restrict">
                     <h2>Product 3</h2>
                     <p>Description of Product 3</p>
                     <p class="price">Price: $15.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-select="restrict">Add to Cart</button>
                 </div>
                 <div class="product">
-                    <img src="images/pic-1.jpg" alt="Product Image">
+                    <img src="images/pic-1.jpg" alt="Product Image" data-select="restrict">
                     <h2>Product 4</h2>
                     <p>Description of Product 4</p>
                     <p class="price">Price: $15.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="images/pic-1.jpg" alt="Product Image">
-                    <h2>Product 5</h2>
-                    <p>Description of Product 5</p>
-                    <p class="price">Price: $15.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="images/pic-1.jpg" alt="Product Image">
-                    <h2>Product 6</h2>
-                    <p>Description of Product 6</p>
-                    <p class="price">Price: $15.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-select="restrict">Add to Cart</button>
                 </div>
                 
                 <!-- Add more product items as needed -->
@@ -130,7 +116,7 @@
         </section>
     
     <div class="big-filler"></div>
-    <section id="contacts">
+    <section id="contacts" data-select="restrict">
         <img src="images/logo.png" class="con-img">
             <div class="text-title">
                 <p>Contacts</p>
@@ -160,5 +146,36 @@
     <div id="cart-overlay" class="hide"></div>
     
    <script src="shopScript.js"></script>
+
+   <!-- Messenger Chat Plugin Code -->
+   <div id="fb-root"></div>
+
+   <!-- Your Chat Plugin code -->
+   <div id="fb-customer-chat" class="fb-customerchat">
+   </div>
+
+   <script>
+     var chatbox = document.getElementById('fb-customer-chat');
+     chatbox.setAttribute("page_id", "107812532412280");
+     chatbox.setAttribute("attribution", "biz_inbox");
+   </script>
+
+   <!-- Your SDK code -->
+   <script>
+     window.fbAsyncInit = function() {
+       FB.init({
+         xfbml            : true,
+         version          : 'v17.0'
+       });
+     };
+
+     (function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+   </script>
 </body>
 </html>
