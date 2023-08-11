@@ -33,17 +33,17 @@ window.addEventListener("scroll", function () {
 //
 // Front Page Image Slider
 //
-//const sliderImages = document.querySelectorAll('.slider-image');
-//        let currentSlide = 0;
-//
-//        function showSlide(n) {
-//            sliderImages[currentSlide].classList.remove('active');
-//            currentSlide = (n + sliderImages.length) % sliderImages.length;
-//            sliderImages[currentSlide].classList.add('active');
-//        }
-//
-//        setInterval(() => showSlide(currentSlide + 1), 5000); // Change slide every 5 seconds
-//
+const sliderImages = document.querySelectorAll('.slider-image');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            sliderImages[currentSlide].classList.remove('active');
+            currentSlide = (n + sliderImages.length) % sliderImages.length;
+            sliderImages[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => showSlide(currentSlide + 1), 5000); // Change slide every 5 seconds
+
 //
 // MOBILE ONLY, navLinks menu 
 //
