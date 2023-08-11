@@ -14,7 +14,7 @@
     
 </head>
 <body>
-	<header class="header">
+	<header class="header" data-select="restrict">
         <nav id="headBar" class="headBar">
             <a href="index.html" id="logo">
                 Saffron Hills
@@ -43,25 +43,30 @@
             </div>
         </nav>
     </header>
-    <section id="front-page">
+    <section id="front-page" data-select="restrict">
         <img src="images/saffron-nature-mort.jpg" alt="" id="saffron-nature-mort">
+        <div class="fade-in">
+            <h1> Шафранови нишки </h1>
+            <h2> Семеен бизнес</h2>
+            <p>"Представямe шафран, който сме отгледали с грижа и страст, за да поднесем невероятното изживяване на вашите вкусови рецептори."</p>
+        </div>
         <a href="https://www.freepik.com/free-vector/watercolor-saffron-flower-illustration_22890649.htm#query=saffron&position=8&from_view=search&track=sph" class="imageCredentials">Image by pikisuperstar on Freepik</a> 
     </section>
     <div class="big-filler"></div>
     <section class="body1">
+        <h2>Who we are?</h2>
         <div class="big-filler"></div>
         <div class="frontPageImageSlider-container">
             <div class="object-container">
             <div class="slider-container">
-               <img class="slider-image active" src="images/user-1.jpg" alt="Image 1">
-              <img class="slider-image" src="images/user-2.jpg" alt="Image 2">
-              <img class="slider-image" src="images/user-3.jpg" alt="Image 3">
+               <img class="slider-image active" src="images/pic-1.jpg" alt="Image 1">
+              <img class="slider-image" src="images/pic-2.jpg" alt="Image 2">
+              <img class="slider-image" src="images/pic-3.jpg" alt="Image 3">
             </div>
-            asdastgrgASFASGEGRDG
         </div>
     </section>
     <section class="products">
-        <h2>Featured Products</h2>
+        <h2>Our Shop</h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="images/pic-1.jpg" alt="Product 1">
@@ -83,7 +88,7 @@
             </div>
         </div>
     </section>
-    <section id="contacts">
+    <section id="contacts" data-select="restrict">
         <img src="images/logo.png" class="con-img">
             <div class="text-title">
                 <p>Contacts</p>
@@ -112,14 +117,15 @@
       </div>
       <div id="to-the-top">
         <button class="scroll-to-top" onclick="scrollToTop()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 48" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 19V5M5 12l7-7 7 7" />
             </svg>
         </button>
       </div>
     
 	<script src="indexScript.js"></script>
-	<!-- Messenger Chat Plugin Code -->
+
+    <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
