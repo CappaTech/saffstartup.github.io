@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <title>Check out Page</title>
+        <meta name="utf8" charset="UTF-8">
+        <meta name="languageBUL" http-equiv="Content-Language" content="bg">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="checkOutStyles.css">
+        <link rel="shortcut icon" href="images/logo.png">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+        <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    </head>
+</head>
+<body>
+  <header class="header" data-select="restrict">
+    <nav id="headBar" class="headBar">
+        <a href="index.html" id="logo">
+            Saffron Hills
+        </a>
+        <div class="nav-links" id="navLinks">
+            <div class="mobile-only">
+                <i id="hide-menu-button" class="fa fa-times" onclick="hideMenu()" style="width: 20px;"></i>
+            </div>
+            <div class="object-container">
+            <ul class="navbox-list">
+                <li class="navbox"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li class="navbox"><a href="shop.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a></li>
+                <li class="navbox"><a href="shop.html"><i class="fa fa-cutlery" aria-hidden="true"></i> Recipes</a></li>
+                <li class="navbox"><a href="opit1.html"><i class="fa fa-commenting" aria-hidden="true"></i> Blog</a></li>
+                <li class="navbox"><a href="About me.html"><i class="fa fa-info" aria-hidden="true"></i> About us</a></li>
+                <li class="navbox"><a href="" class="navbox-socials-button"><i class="fa fa-share-alt" aria-hidden="true"></i> Socials</a></li>
+                <!--<li class="signInbutton"><a href="signIn.html" class="login-button">
+                </i>Sign In</a>
+                </li>-->
+                
+            </ul>
+            </div>
+        </div>	
+        <div class="mobile-only">
+            <i id="show-menu-button" class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: #855141; padding-right: 50px;"></i>
+        </div>
+    </nav>
+</header>
+<section class="cart-section" data-select="restrict">
+  <a href="checkout.html">
+    <div id="cart-button">
+      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+      <span class="cart-count">0</span>
+    </div>
+  </a>
+</section>
+<main>
+  <div class="small-filler"></div>
+  <div class="grid-container">
+    <div class="grid-item">
+      <section id="step-cart" class="checkout">
+        
+        <h1>Checkout</h1>
+        <div class="cart-items-container" id="cart-items">
+          <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+          <p>Total: <span id="checkout-total"></span></p>
+        </div>
+        <div class="button-next">
+          <button class="step-button" id="btn-to-payment">Към плащане</button>
+        </div>
+        <div class="small-filler"></div>
+      </section>
+    </div>
+    <!-- Step 2: Payment Method -->
+    <div class="grid-item">
+      <section id="step-payment" class="checkout-step hidden">
+        <div class="form-buttons-container">
+          <h2>Начин на плащане</h2>
+          <button id="delivery-payment" class="step-button">Наложен платеж</button>
+          <button id="card-payment" class="step-button">Плащане с карта</button>
+        </div>
+        
+
+        <section id="payment-with-card" class="checkout-step hidden">
+
+          <h2>Вашите Данни</h2>
+          <form id="payment-form">
+            <div class="grid-form-container">
+              <div class="grid-item">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Име" required>
+              </div>
+              <div class="grid-item">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Фамилия"required>
+              </div>
+              <div class="grid-item">
+                <label for="phone-number">Phone Number:</label>
+                <input type="text" id="phone-number" name="phone-number" placeholder="Телефонен номер" required>
+              </div>
+              <div class="grid-item">
+                <label for="e-mail">E-mail:</label>
+                <input type="text" id="e-mail" name="e-mail" placeholder="e-mail">
+              </div>
+            </div>
+            <div class="address-form-container">
+              <p id="card-payment-error-message" data-select="restrict">Моля избере начин на доставка.</p>
+
+              <input type="checkbox" id="card-payment-DelToAddress">
+              <label for="card-payment-DelToAddress" data-select="restrict">Доставка до адрес</label>
+
+              <input type="checkbox" id="card-payment-DelToOffice">
+              <label for="card-payment-DelToOffice" data-select="restrict">Доставка до офис</label>
+            </div>
+            <div class="grid-form-container2">
+              <div class="grid-item">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Град/Село" required>
+              </div>
+              <div class="grid-item">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Адрес" required>
+              </div>
+              <div class="grid-item">
+                <label for="zip">ZIP Code:</label>
+                <input class="without-arrows" type="number" id="zip" name="zip" inputmode="numeric" placeholder="Пощенски код" required>
+              </div>
+            </div>
+
+            <h2>Card Details</h2>
+            <div class="grid-form-container2">
+              <div class="grid-item">
+                <label for="card-number">Card Number:</label>
+                <input class="without-arrows" type="number" id="card-number" name="card-number" required>
+              </div>
+              <div class="grid-item">
+                <label for="expiry-date">Expiry Date:</label>
+              <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" maxlength="5" required>
+              </div>
+              <div class="grid-item">
+                <label for="cvv">CVV:</label>
+                <input class="without-arrows" type="number" id="cvv" name="cvv" required>
+              </div>
+            </div>
+            
+            <!-- Other payment method fields can be added here -->
+          </form>
+        </section>
+
+        <!-- Step 2: Billing Address -->
+        <section id="step-billing" class="checkout-step hidden">
+          <h2>Вашите Данни</h2>
+          <form id="billing-form">
+            <div class="grid-form-container">
+              <div class="grid-item">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Име" required>
+              </div>
+              <div class="grid-item">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Фамилия"required>
+              </div>
+              <div class="grid-item">
+                <label for="phone-number">Phone Number:</label>
+                <input type="text" id="phone-number" name="phone-number" placeholder="Телефонен номер" required>
+              </div>
+              <div class="grid-item">
+                <label for="e-mail">E-mail:</label>
+                <input type="text" id="e-mail" name="e-mail" placeholder="e-mail">
+              </div>
+            </div>
+            <div class="address-form-container">
+              <p id="delivery-payment-error-message" data-select="restrict">Моля избере начин на доставка.</p>
+
+              <input type="checkbox" id="delivery-payment-DelToAddress">
+              <label for="delivery-payment-DelToAddress" data-select="restrict">Доставка до адрес</label>
+
+              <input type="checkbox" id="delivery-payment-DelToOffice">
+              <label for="delivery-payment-DelToOffice" data-select="restrict">Доставка до офис</label>
+            </div>
+            <div class="grid-form-container2">
+              <div class="grid-item">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Град/Село" required>
+              </div>
+              <div class="grid-item">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Адрес" required>
+              </div>
+              <div class="grid-item">
+                <label for="zip">ZIP Code:</label>
+                <input class="without-arrows" type="number" id="zip" name="zip" inputmode="numeric" placeholder="Пощенски код" required>
+              </div>
+            </div>
+            <!-- Other billing address fields can be added here -->
+          </form>
+        </section>
+        <button id="btn-to-summary" class="step-button">Order Summary</button>
+      </section>
+    </div>
+  </div>
+  
+  
+ 
+
+  
+  <!-- Step 4: Order Summary -->
+  <section id="step-summary" class="checkout-step hidden">
+    <h2>Order Summary</h2>
+    <div id="order-details">
+      <!-- Display order summary details using JavaScript -->
+    </div>
+    <button id="btn-back" class="step-button">Go back</button>
+    <button id="btn-place-order" class="step-button">Place Order</button>
+  </section>
+  
+</main>
+<footer>
+  <p><i class="fa fa-copyright"></i> 2023 Saffron Shop. All rights reserved.</p>
+</footer>
+<script src="checkout.js"></script>
+</body>
+</html>
+
+
+
