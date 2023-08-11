@@ -150,6 +150,9 @@ li.navbox a.active-page::after{
     background-color: #ccc;
     cursor: pointer;
 }*/
+.products{
+	min-height: 100vh;
+}
 .grid {
 	width: 75%;
     display: grid;
@@ -453,8 +456,8 @@ footer p {
 }
 .scroll-to-top {
 	position: fixed;
-	bottom: 20px;
-	right: 20px;
+	bottom: 90px;
+	right: 24px;
 	width: 50px;
 	height: 50px;
 	background-color: #855141;
@@ -486,9 +489,13 @@ footer p {
 	width: 75%;
 	height: 200px;
 }
-  .mobile-only{
-	  display: none;
-  }
+.mobile-only{
+  display: none;
+}
+[data-select="restrict"] {
+	user-select: none;
+}
+
 
   /*Mobile*/
 @media(max-width: 768px){
@@ -564,8 +571,6 @@ footer p {
 		transform: translateY(0px);
 	}
 	.scroll-to-top {
-		bottom: 10px;
-		right: 10px;
 		z-index: 97;
 	}
 }
