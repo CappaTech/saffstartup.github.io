@@ -246,12 +246,8 @@ cartButton.addEventListener("click", function () {
           }
         });
 }
-
-      
-      
 }
-  
-
+      
 // Function to update the cart count
 function updateCartCount() {
   var totalCount = cart.reduce(function (sum, item) {
@@ -353,9 +349,11 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
+
 //
 //Function for poping up the scroll-to-top button
 //
+
 window.addEventListener("scroll", function () {
   const toTheTop = document.getElementById("to-the-top");
   let section = document.getElementById("contacts"); 
@@ -372,6 +370,7 @@ window.addEventListener("scroll", function () {
     toTheTop.style.display = "none";
   }
 });
+
 //
 //Navigation Bar functions for mobile + Smooth scrolling function
 //
@@ -388,51 +387,6 @@ var navLinks = document.getElementById("navLinks");
 		speedAsDuration: true
 		});
 
-
-//
-// JavaScript function to toggle scrolling behavior when the button is clicked
-//
-
-
-
-//
-//Checkout Page
-//
-
-//
-//next button function
-//
-// Get the "Next" button elements
-//var nextButtons = document.querySelectorAll(".next-button");
-//
-//// Add event listeners to each "Next" button
-//  nextButtons.forEach(function (button) {
-//    button.addEventListener("click", function () {
-//      // Find the current active step
-//      var currentStep = button.closest(".step");
-//        
-//      // Find the next step
-//      var nextStep = currentStep.nextElementSibling;
-//        
-//      // Validate the current step (if needed)
-//      var isValid = validateStep(currentStep);
-//        
-//      // If the current step is valid, move to the next step
-//      if (isValid) {
-//        // Hide the current step
-//        currentStep.classList.remove("active");
-//          
-//        // Show the next step
-//        nextStep.classList.add("active");
-//      }
-//    });
-//  });
-//
-//  // Function to validate the current step (placeholder, replace with your validation logic)
-//  function validateStep(step) {
-//    // Add your validation logic here
-//    return true; // Return true if the step is valid, or false if it's not
-//  }
 //
 //Prevent from scrolling function
 //
@@ -519,3 +473,19 @@ preventScrollButton4.addEventListener("click", function (event) {
 }
 // Call the function to toggle scrolling behavior when the button is clicked
 toggleScrollOnClick();
+
+
+
+//
+//
+//CHECKOUT PAGE
+//
+//
+
+
+
+//
+// Retrieve the cart data and total price from localStorage or initialize empty values
+var cashoutItems = JSON.parse(localStorage.getItem("cart")) || [];
+var cashoutTotalPrice = parseFloat(localStorage.getItem("totalPrice")) || 0;
+
