@@ -84,7 +84,7 @@ function preventHorizontalScroll() {
 //Switching background when they are scrolled to a section "in this case #front-page"
 //
 window.addEventListener("scroll", function () {
-  const scrollDownPopUpMessagedocument=document.querySelector(".popup-scroll-down-message");
+  const scrollDownPopUpMessagedocument = document.querySelector(".popup-scroll-down-message");
   const navbar = document.querySelector(".headBar");
   let section = document.querySelector("#front-page"); 
 
@@ -100,7 +100,7 @@ window.addEventListener("scroll", function () {
     scrollDownPopUpMessagedocument.classList.add("scrolled");
   } else {
     navbar.classList.remove("scrolled");
-    scrollDownPopUpMessagedocument.remove("scrolled");
+    scrollDownPopUpMessagedocument.classList.remove("scrolled");
   }
 });
 //
@@ -177,3 +177,53 @@ function toggleScrollOnClick() {
 
 // Call the function to toggle scrolling behavior when the button is clicked
 toggleScrollOnClick();
+
+//
+//COOKIES
+//
+document.addEventListener("DOMContentLoaded", function () {
+  const acceptAllBtn = document.querySelector(".cc_btn_accept_all");
+  const closeBtn = document.querySelector(".ajs_close");
+  const ccContainer = document.querySelector(".cc_container");
+
+  // Function to set a cookie
+  function setCookie(name, value, expires) {
+    document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+  }
+
+  // Function to check the value of a cookie
+  function getCookieValue(name) {
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split("=");
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  }
+
+  // Function to hide ccContainer if the cookie value is true
+  function hideContainerIfCookieTrue() {
+    if (getCookieValue("myCookie") === "true") {
+      ccContainer.classList.remove("active");
+    }else{
+      ccContainer.classList.add("active");
+    }
+  }
+
+  // Call the function when the page loads
+  hideContainerIfCookieTrue();
+
+  // Hide the cc_container when acceptAllBtn is clicked
+  acceptAllBtn.addEventListener("click", function () {
+    ccContainer.classList.remove("active");
+    setCookie("myCookie", "true", new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString());
+  });
+
+  // Hide the cc_container when closeBtn is clicked and set session cookie
+  closeBtn.addEventListener("click", function () {
+    ccContainer.classList.remove("active");
+    setCookie("myCookie", "false", "session");
+  });
+});
