@@ -601,6 +601,7 @@ footer p {
 	}
 	.scroll-to-top {
 		z-index: 99;
+		pointer-events: none;
 	}
 	a
 	{
