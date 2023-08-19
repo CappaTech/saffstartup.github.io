@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta name="utf8" charset="UTF-8">
+    <meta name="languageBUL" http-equiv="Content-Language" content="bg">
+	<meta name="viewport" content="with=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Saffron Start-up</title>
+	<link rel="stylesheet" href="error-page.css">
+    <link rel="shortcut icon" href="images/logo.png">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+	<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+</head>
+<body>
+    <header class="header" data-select="restrict">
+        <nav id="headBar" class="headBar">
+            <a href="index.html" id="logo">
+                Saffron Hills
+            </a>
+            <div class="nav-links" id="navLinks">
+                <div class="mobile-only">
+                    <i id="hide-menu-button" class="fa fa-times" onclick="hideMenu()" style="width: 20px;"></i>
+                </div>
+                <div class="object-container">
+                <ul class="navbox-list">
+                    <li class="navbox"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li class="navbox"><a href="shop.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a></li>
+                    <li class="navbox"><a href="error-page.html"><i class="fa fa-cutlery" aria-hidden="true"></i> Recipes</a></li>
+                    <li class="navbox"><a href="error-page.html"><i class="fa fa-commenting" aria-hidden="true"></i> Blog</a></li>
+                    <li class="navbox"><a href="error-page.html"><i class="fa fa-info" aria-hidden="true"></i> About us</a></li>
+                    <li class="navbox"><a href="" class="navbox-socials-button"><i class="fa fa-share-alt" aria-hidden="true"></i> Socials</a></li>
+                    <!--<li class="signInbutton"><a href="signIn.html" class="login-button">
+                    </i>Sign In</a>
+                    </li>-->
+                    
+                </ul>
+                </div>
+            </div>	
+            <div class="mobile-only">
+                <i id="show-menu-button" class="fa fa-bars" onclick="showMenu()" style=" font-size: 30px; color: #855141; padding-right: 50px;"></i>
+            </div>
+        </nav>
+    </header>
+   
+    <section class="main" data-select="restrict">
+        <audio id="audio-effect" autoplay>
+            <source src="images/sound-effect-error-xp.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <h1>404</h1>
+        <p>Oops! Page not found...</p>
+    </section>
+    <section id="contacts" data-select="restrict">
+        <img src="images/logo.png" class="con-img">
+            <div class="text-title">
+                <p>Contacts</p>
+                <h1>Here are our social links:</h1>
+            </div>	
+            <div class="big-filler"></div> 
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100005128179308" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mladenpetkovv/?hl=bg" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCAXDR4yn6JJTOxh8WTPE0kw" target="_blank"><i class="fa fa-youtube"></i></a>
+                <a href="https://twitter.com/TechCappa" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.twitch.tv/cappatech_ynwa" target="_blank"><i class="fa fa-twitch"></i></a>
+                <a href="https://open.spotify.com/user/21nosok7gsywxir6k43fxophq?si=ZSMF_rIpQyy7LdxpCk4PdQ" target="_blank"><i class="fa fa-spotify"></i></a>
+            </div>	<br>
+            <div class="terms-and-conditions">
+               <a href="term-and-conditions.html" class=""><p>Terms and conditions.</p></a>
+            </div>
+        </section>
+    <footer>
+        <p><i class="fa fa-copyright"></i> 2023 Saffron Shop. All rights reserved.</p>
+    </footer>
+    <div id="to-the-top">
+      <button class="scroll-to-top" onclick="scrollToTop()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19V5M5 12l7-7 7 7" />
+          </svg>
+      </button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const audioElement = document.getElementById("audio-effect");
+                
+          // Remove the audio element when the audio finishes playing
+          audioElement.addEventListener("ended", function () {
+            audioElement.remove();
+          });
+        });
+    </script>
+	<script src="cookies-policy.js"></script>
+
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "107812532412280");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v17.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+</html>
