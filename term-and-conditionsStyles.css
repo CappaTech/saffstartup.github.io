@@ -110,6 +110,22 @@ li.navbox a.active-page::after{
 }
 .text p{
     text-align:justify;
+	padding: 5px 0;
+    margin-left: 35px;
+    line-height: 1.5;
+}
+.a-link{
+	text-decoration: none;
+	color:#009688;
+	font-size: large;
+	font-weight: bold;
+	list-style: circle;
+    padding: 5px 0;
+    margin-left: 35px;
+    line-height: 1.5;
+}
+.a-link:hover{
+	color:#1eff00;
 }
 #contacts{
 	padding: 100px 0;
@@ -263,6 +279,9 @@ footer p {
 	}
 	.terms-and-conditions:hover{
 		transform: translateY(0px);
+	}
+	footer p {
+		font-size: 14px;
 	}
 	.scroll-to-top {
 		z-index: 99;
