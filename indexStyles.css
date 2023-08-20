@@ -261,6 +261,8 @@ li.navbox a.active-page::after{
 .login-button i {
 	margin-right: 5px;
 }*/
+
+
 .products {
     padding: 100px 20px;
     text-align: center;
@@ -319,6 +321,38 @@ li.navbox a.active-page::after{
 
 .btn:hover {
     background-color: #f5dd94;
+}
+.class-features{
+	padding: 20px;
+	width: auto;
+	background-color: #b0dce2;
+}
+.features-grid-container{
+	width: 100%;
+	height: 1s00px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-rows: auto;
+	justify-content: center;
+	align-items: center;
+    gap: 80px;
+	margin: 0 auto;
+}
+.grid-item{
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	align-items: center;
+}
+.grid-item img{
+	display: flex;
+	width: 100px;
+	height: 33%;
+}
+.grid-item h2{
+	color: #fff;
+	font-size: 20px;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #contacts{
 	padding: 100px 0;
@@ -599,14 +633,15 @@ footer p {
 	.terms-and-conditions:hover{
 		transform: translateY(0px);
 	}
+	footer p {
+		font-size: 14px;
+	}
 	.scroll-to-top {
 		z-index: 99;
 	}
-	a
-	{
+	a{
 		touch-action: manipulation;
 	}
-	  
 }
 
 /*
