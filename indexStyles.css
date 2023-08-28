@@ -227,13 +227,11 @@ li.navbox a.active-page::after{
 .frontPageImageSlider-container{
     margin: auto;
     position: relative;
-    width: 20%;
+    width: 80%;
 }
 .slider-container {
     width: 100%;
-    height: 400px;
     position: relative;
-    overflow: hidden;
 }
 .slider-image {
     width: 100%;
@@ -242,7 +240,6 @@ li.navbox a.active-page::after{
     top: 0;
     left: 0;
     opacity: 0;
-	object-fit: cover;
     transition: opacity 0.5s ease;
 }
 .slider-image.active {
@@ -641,6 +638,9 @@ footer p {
 	}
 	.imageCredentials{
 		font-size: 12px;
+	}
+	.cc_container.active{
+		width: 98%;
 	}
 	.social-links .fa:hover{
 		transform: translateY(0px);
