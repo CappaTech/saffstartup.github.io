@@ -124,6 +124,8 @@ function saveCartData() {
 updateCheckoutItems();
 updateCartCount();
 
+
+
 //
 //Multi-step navigation
 //
@@ -139,16 +141,35 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Get all checkout step sections
     const stepBilling = document.getElementById("step-billing");
-    const stepPayment = document.getElementById("step-payment");
-    const stepCardPayment = document.getElementById("form");
+    const stepPayment = document.getElementById("form");
+    const stepCardPayment = document.getElementById("step-payment");
     const stepSummary = document.getElementById("step-summary");
-  
+
+    //
+    //loading animation script
+    //
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const loadedContent = document.getElementById('loadedContent');
+
+    //btnToPayment.addEventListener('click', () => {
+    //  loadingOverlay.classList.remove('hidden');
+    //  setTimeout(() => {
+    //    loadingOverlay.classList.add('hidden');
+    //    loadedContent.classList.remove('hidden');
+    //  }, 3000);
+    //});
+
     // Add click event listeners to the buttons
     btnToPayment.addEventListener("click", function (item) {
       if(cart.length > 0){
-        stepPayment.classList.remove("hidden");
-        btnToPayment.style.display="none";
-        btnToSummary.style.display="none";
+        loadingOverlay.classList.remove('hidden');
+        setTimeout(() => {
+          loadingOverlay.classList.add('hidden');
+          stepPayment.classList.remove("hidden");
+          btnToPayment.style.display="none";
+          btnToSummary.style.display="none";
+        }, 1500);
+        
       }else{
         alert("There are no products added into the cart...");
         window.location.href = "shop.html";
@@ -167,13 +188,61 @@ document.addEventListener("DOMContentLoaded", function () {
       stepCardPayment.classList.add("hidden");
       btnToSummary.style.display="block";
     });
-    
-    btnToSummary.addEventListener("click", function () {
-      stepSummary.classList.remove("hidden");
-      stepBilling.classList.add("hidden");
-      stepPayment.classList.add("hidden");
+    //
+    //Function to check if required fields are filled
+    // 
+    function checkRequiredFields() {
+      const requiredFieldsBillingForm = document.querySelectorAll('#billing-form [required]');
+      const requiredFieldsPaymentForm = document.querySelectorAll('#payment-form [required]');
+      let isFormValid = true;
+    if(stepBilling.classList.contains('hidden')){
+      requiredFieldsPaymentForm.forEach(function(field) {
+        if (!field.value.trim()) {
+          isFormValid = false;
+          field.classList.add('error'); // Add error class to the field
+        } else {
+          field.classList.remove('error'); // Remove error class if field is filled
+        }
+      });
+      if (!isFormValid) {
+        alert('Please fill in all required fields.');
+      }else{
+        stepSummary.classList.remove("hidden");
+        stepBilling.classList.add("hidden");
+        stepPayment.classList.add("hidden");
+      }
+    }
+   if (stepCardPayment.classList.contains('hidden')){
+      requiredFieldsBillingForm.forEach(function(field) {
+        if (!field.value.trim()) {
+          isFormValid = false;
+          field.classList.add('error'); // Add error class to the field
+        } else {
+          field.classList.remove('error'); // Remove error class if field is filled
+        }
+      });
+      if (!isFormValid) {
+        alert('Please fill in all required fields.');
+      }else{
+        loadingOverlay.classList.remove('hidden');
+        setTimeout(() => {
+          loadingOverlay.classList.add('hidden');
+          stepSummary.classList.remove("hidden");
+          stepBilling.classList.add("hidden");
+          stepPayment.classList.add("hidden");
+        }, 3000);
+      }
+    }else{
+      return 0;
+    }
+      return isFormValid;
+    }
+    // Add click event listener to the "Order Summary" button
+    btnToSummary.addEventListener('click', function(event) {
+      if (!checkRequiredFields()) {
+        event.preventDefault(); // Prevent submitting the form
+      }
     });
-
   });
   
   //
@@ -230,6 +299,21 @@ function checkCheckboxState2() {
   }
 }
 
+
+//
+//Prevent from horizontal scroll
+//
+function preventHorizontalScroll() {
+  // Listen for the scroll event
+  window.addEventListener("scroll", function() {
+    // Check if the scroll position has changed horizontally
+    if (window.pageXOffset !== 0) {
+      // If the scroll position is not at the leftmost, reset it to 0
+      window.scrollTo(0, window.pageYOffset);
+    }
+  });
+}
+
   //
   //
   //PAYMENT DATA
@@ -268,17 +352,3 @@ function checkCheckboxState2() {
   });
   
 
-
-//
-//Prevent from horizontal scroll
-//
-function preventHorizontalScroll() {
-  // Listen for the scroll event
-  window.addEventListener("scroll", function() {
-    // Check if the scroll position has changed horizontally
-    if (window.pageXOffset !== 0) {
-      // If the scroll position is not at the leftmost, reset it to 0
-      window.scrollTo(0, window.pageYOffset);
-    }
-  });
-}
