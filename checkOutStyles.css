@@ -10,15 +10,30 @@
 .headBar{
 	position: fixed;
 	background-color: #FFC000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 	transition: background-color 0.3s ease;
+  backdrop-filter: blur(10px);
+	border-bottom: 2px solid rgba(255,255,255, .2);
 }		
+.headBar::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+	transition: .5s;
+}
+.headBar:hover::before{
+	left: 100%;
+}
 #logo{
 	font-size: 32px;
     color: #855141;
@@ -107,7 +122,7 @@ li.navbox a.active-page::after{
 }
 main {
   width: auto;
-  min-height: 86vh;
+  min-height: 100vh;
   padding: 2rem;
   background-color: #fff;
 }
@@ -127,7 +142,7 @@ main {
 .address-form-container{
   padding-bottom: 10px;
 }
-#step-payment{
+#form{
   border-left: 3px solid #000000;
   width: auto;
   padding: 20px;
@@ -187,7 +202,7 @@ main {
 .checkout-item input {
   width: 80px;
   text-align: right; /* Adjust input width as needed */
-  margin-left: auto; /* Push the input to the right */
+  margin-left: auto;
 }
 
 .cart-total{
@@ -233,13 +248,23 @@ main {
 }
 
 /* Styling for the form inputs */
-.checkout-step input[type="text"],
-.checkout-step input[type="number"] {
+.checkout-step input[type="text"] {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
+}
+#step-cart input[type="number"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.checkout-step input[class="error"] {
+  border-color: red; /* Set border color to red for inputs with error */
+}
+input:not(.error) {
+  border-color: initial;
 }
 #card-payment-error-message,
 #delivery-payment-error-message {
@@ -259,7 +284,7 @@ main {
 }
 #cvv{
   text-align: center;
-  width:100px;
+  width:75px;
 }
 
 label[for="first-name"]::after {
@@ -362,21 +387,58 @@ footer {
 footer p {
     font-size: 20px;
 }
-  .small-filler{
-    margin: 0 auto;
-    width: 75%;
-    height: 50px;
+.loading-overlay {
+  position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	z-index: 999;
+}
+.spinner-block{
+  background-color: #fff; /* White box background */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Light shadow */
+  z-index: 100;
+}
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 101;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  .medium-filler{
-    margin: 0 auto;
-    width: 75%;
-    height: 100px;
-  }
-  .big-filler{
-    margin: 0 auto;
-    width: 75%;
-    height: 200px;
-  }
+}
+.hidden{
+  display: none;
+}
+.small-filler{
+  margin: 0 auto;
+  width: 75%;
+  height: 50px;
+}
+.medium-filler{
+  margin: 0 auto;
+  width: 75%;
+  height: 100px;
+}
+.big-filler{
+  margin: 0 auto;
+  width: 75%;
+  height: 200px;
+}
 /*This removes the buttons from the input box when the imput box is only for numbers*/
 input[type="number"].without-arrows::-webkit-inner-spin-button,
 input[type="number"].without-arrows::-webkit-outer-spin-button {
@@ -451,7 +513,7 @@ li.navbox a:hover::after{
 .grid-form-container{
   grid-template-columns: 1fr;
 }
-#step-payment{
+#form{
   border: 3px solid #000000;
   width: auto;
 }
@@ -468,6 +530,8 @@ li.navbox a:hover::after{
 .terms-and-conditions:hover{
   transform: translateY(0px);
 }
-
+footer p {
+  font-size: 14px;
+}
 }
   
