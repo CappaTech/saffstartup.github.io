@@ -185,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const acceptAllBtn = document.querySelector(".cc_btn_accept_all");
   const closeBtn = document.querySelector(".ajs_close");
   const ccContainer = document.querySelector(".cc_container");
+  const ccOverlay = document.querySelector(".cc_overlay");
 
   // Function to set a cookie
   function setCookie(name, value, expires) {
@@ -207,8 +208,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function hideContainerIfCookieTrue() {
     if (getCookieValue("myCookie") === "true") {
       ccContainer.classList.remove("active");
+      ccOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
     }else{
       ccContainer.classList.add("active");
+      ccOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
     }
   }
 
@@ -218,12 +223,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Hide the cc_container when acceptAllBtn is clicked
   acceptAllBtn.addEventListener("click", function () {
     ccContainer.classList.remove("active");
-    setCookie("myCookie", "true", new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString());
+    ccOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+    setCookie("myCookie", "true", new Date(Date.now() + 24 * 60 * 60 * 1000).toUTCString());
   });
 
   // Hide the cc_container when closeBtn is clicked and set session cookie
   closeBtn.addEventListener("click", function () {
     ccContainer.classList.remove("active");
+    ccOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
     setCookie("myCookie", "false", "session");
   });
 });
+
+
+
