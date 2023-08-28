@@ -207,9 +207,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!isFormValid) {
         alert('Please fill in all required fields.');
       }else{
-        stepSummary.classList.remove("hidden");
-        stepBilling.classList.add("hidden");
-        stepPayment.classList.add("hidden");
+        loadingOverlay.classList.remove('hidden');
+        setTimeout(() => {
+          loadingOverlay.classList.add('hidden');
+          stepSummary.classList.remove("hidden");
+          stepBilling.classList.add("hidden");
+          stepPayment.classList.add("hidden");
+        }, 3000);
       }
     }
    if (stepCardPayment.classList.contains('hidden')){
