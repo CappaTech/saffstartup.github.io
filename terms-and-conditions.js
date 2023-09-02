@@ -43,7 +43,22 @@ function preventHorizontalScroll() {
       }
     });
   }
-  //
+
+//
+//Progress bar function
+//
+
+//main function
+function updateProfressBar(){
+  const{scrollTop, scrollHeight} = document.documentElement;
+  const scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100 + '%';
+  //update progress bar width
+  document.querySelector('#progress-bar').style.setProperty('--progress', scrollPercent);
+}
+//event listener fot the scroll
+document.addEventListener('scroll', updateProfressBar);
+
+//
 // JavaScript function to toggle scrolling behavior when the button is clicked
 //
 
