@@ -186,6 +186,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.querySelector(".ajs_close");
   const ccContainer = document.querySelector(".cc_container");
   const ccOverlay = document.querySelector(".cc_overlay");
+  const ccMoreInfo = document.querySelector(".cc_more_info");
+  const ccMoreInfo2 = document.querySelector(".cc_more_info2");
 
   // Function to set a cookie
   function setCookie(name, value, expires) {
@@ -230,6 +232,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hide the cc_container when closeBtn is clicked and set session cookie
   closeBtn.addEventListener("click", function () {
+    ccContainer.classList.remove("active");
+    ccOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+    setCookie("myCookie", "false", "session");
+  });
+  // Hide the cc_container when ccMoreInfo (ahref) is clicked and set session cookie
+  ccMoreInfo.addEventListener("click", function () {
+    ccContainer.classList.remove("active");
+    ccOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+    setCookie("myCookie", "false", "session");
+  });
+  // Hide the cc_container when ccMoreInfo2 (ahref) is clicked and set session cookie
+  ccMoreInfo2.addEventListener("click", function () {
     ccContainer.classList.remove("active");
     ccOverlay.classList.remove("active");
     document.body.style.overflow = "auto";
