@@ -11,7 +11,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
 	<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    
+    <!-- Swiper Default CSS -->
+    <link name="swiper" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- Swiper JS -->
+    <script name="swiper" src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
 	<header class="header" data-select="restrict">
@@ -65,17 +68,44 @@
     </section>
     <div class="big-filler"></div>
     <section id="body1" class="body1">
+        <div class="medium-filler"></div>
         <h2>Who we are?</h2>
-        <div class="big-filler"></div>
-        <div class="frontPageImageSlider-container">
+        <div class="small-filler"></div>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide"><img src="images/img-1.jpg" alt="Slider 1"></div>
+              <div class="swiper-slide"><img src="images/img-2.jpg" alt="Slider 2"></div>
+              <div class="swiper-slide"><img src="images/img-3.jpg" alt="Slider 3"></div>
+              <div class="swiper-slide"><img src="images/img-1.jpg" alt="Slider 4"></div>
+              <div class="swiper-slide"><img src="images/img-2.jpg" alt="Slider 5"></div>
+              <div class="swiper-slide"><img src="images/img-3.jpg" alt="Slider 6"></div>
+              <div class="swiper-slide"><img src="images/img-1.jpg" alt="Slider 7"></div>
+              <div class="swiper-slide"><img src="images/img-2.jpg" alt="Slider 8"></div>
+              <div class="swiper-slide"><img src="images/img-3.jpg" alt="Slider 9"></div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+                
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        
+            <!-- If we need scrollbar 
+            <div class="swiper-scrollbar"></div>-->
+        </div>
+    <!--<div class="frontPageImageSlider-container">
             <div class="object-container">
             <div class="slider-container">
                <img class="slider-image active" src="images/pic-1.jpg" alt="Image 1">
               <img class="slider-image" src="images/pic-2.jpg" alt="Image 2">
               <img class="slider-image" src="images/pic-3.jpg" alt="Image 3">
             </div>
-        </div>
+        </div>-->
     </section>
+    
     <div class="big-filler"></div>
     <section class="products">
         <h2>Our Shop</h2>
@@ -100,27 +130,27 @@
             </div>
         </div>
     </section>
-    <section id="features" class="class-features">
-        <div class="features-grid-container">
-            <div class="grid-item">
-                <img src="images/saffron-hills-delivery-truck.png" alt="" data-select="restrict">
-                <h2>Бърза доставка!</h2>
-            </div>
-            <div class="grid-item">
-                <img src="images/saffron-hills-free-delivery-truck.png" alt="" data-select="restrict">
-                <h2>Опция за безплатна доставка!</h2>
-            </div>
-            <div class="grid-item">
-                <img src="images/saffron-hills-online-payment.png" alt="" data-select="restrict">
-                <h2>Възможност за онлайн плащания!</h2>
-            </div>
-            <div class="grid-item">
-                <img src="images/saffron-hills-bio-product.png" alt="" data-select="restrict">
-                <h2>Био продукт!</h2>
-            </div>
-        </div>
-    </section>
-    <div class="medium-filler"></div>
+   <section id="features" class="reveal" >
+       <div class="features-grid-container">
+           <div class="grid-item">
+               <img src="images/saffron-hills-delivery-truck.png" alt="" data-select="restrict">
+               <h2>Бърза доставка!</h2>
+           </div>
+           <div class="grid-item">
+               <img src="images/saffron-hills-free-delivery-truck.png" alt="" data-select="restrict">
+               <h2>Опция за безплатна доставка!</h2>
+           </div>
+           <div class="grid-item">
+               <img src="images/saffron-hills-online-payment.png" alt="" data-select="restrict">
+               <h2>Възможност за онлайн плащания!</h2>
+           </div>
+           <div class="grid-item">
+               <img src="images/saffron-hills-bio-product.png" alt="" data-select="restrict">
+               <h2>Био продукт!</h2>
+           </div>
+       </div>
+   </section>
+   
     <section id="contacts" data-select="restrict">
         <img src="images/logo.png" class="con-img">
             <div class="text-title">
@@ -129,7 +159,7 @@
             </div>	
             <div class="big-filler"></div> 
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=100005128179308" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100095527272473" target="_blank"><i class="fa fa-facebook"></i></a>
                 <a href="https://www.instagram.com/mladenpetkovv/?hl=bg" target="_blank"><i class="fa fa-instagram"></i></a>
                 <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
                 <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -143,11 +173,16 @@
     <footer>
         <p><i class="fa fa-copyright"></i> 2023 Saffron Shop. All rights reserved.</p>
     </footer>
+    <!--
     <div class="popup-scroll-down-message">
         <div class="popup-content">
           <p class="popup-text">Виж какво има надолу <i class="fa fa-smile-o" aria-hidden="true" style=" font-size: 25px;"></i></p>
         </div>
     </div>
+    -->
+    
+
+    <!-- ToTheTop button -->
     <div id="to-the-top">
       <button class="scroll-to-top" onclick="scrollToTop()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -155,6 +190,9 @@
           </svg>
       </button>
     </div>
+    <!-- -->
+
+    <!-- Cookies message -->
     <div id="cc_container_id" class="cc_container">
         <p class="cc_message">
             [име на фирма] използва бисквитки,
@@ -182,13 +220,28 @@
     
     <div class="cc_overlay"></div>
 	<script src="indexScript.js"></script>
+    <!-- -->
 
+    <!--Website Legend 
+    <div class="website_legend">
+        <div class="legend_columnn">
+            <div class="legend_element">1</div>
+            <div class="legend_element">2</div>
+            <div class="legend_element">3</div>
+            <div class="legend_element">4</div>
+            <div class="legend_element">5</div>
+        </div>
+    </div>
+    -->
+    <!-- -->
+    
     <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
+    <!-- -->
 
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
