@@ -33,35 +33,55 @@ window.addEventListener("scroll", function () {
 //
 // Front Page Image Slider
 //
-const sliderImages = document.querySelectorAll('.slider-image');
-        let currentSlide = 0;
-
-        function showSlide(n) {
-            sliderImages[currentSlide].classList.remove('active');
-            currentSlide = (n + sliderImages.length) % sliderImages.length;
-            sliderImages[currentSlide].classList.add('active');
-        }
-
-        setInterval(() => showSlide(currentSlide + 1), 5000); // Change slide every 5 seconds
-
+//const sliderImages = document.querySelectorAll('.slider-image');
+//        let currentSlide = 0;
 //
-// MOBILE ONLY, navLinks menu 
+//        function showSlide(n) {
+//            sliderImages[currentSlide].classList.remove('active');
+//            currentSlide = (n + sliderImages.length) % sliderImages.length;
+//            sliderImages[currentSlide].classList.add('active');
+//        }
 //
-var navLinks = document.getElementById("navLinks");
+//        setInterval(() => showSlide(currentSlide + 1), 5000); // Change slide every 5 seconds
+//
 
-function showMenu(){
-navLinks.style.right = "0";
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 4,
+  centeredSlides: true,
 
-}
-function hideMenu(){
-navLinks.style.right = "-200px";
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false
+  },
 
-}
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    dynamicBullets: true,
+    clickable: true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+
 
 //
 // Vertical Smooth scroll
 //
-var scroll = new SmoothScroll('a[href*="#"]', {
+let scroll = new SmoothScroll('a[href*="#"]', {
 speed: 1000,
 speedAsDuration: true
 });
@@ -97,12 +117,28 @@ window.addEventListener("scroll", function () {
   // Add or remove the "scrolled" class based on the scroll position
   if (scrollPosition >= sectionHeight) {
     navbar.classList.add("scrolled");
-    scrollDownPopUpMessagedocument.classList.add("scrolled");
   } else {
     navbar.classList.remove("scrolled");
-    scrollDownPopUpMessagedocument.classList.remove("scrolled");
   }
 });
+
+//This function reveals elements in a section that is reached while scrolling
+function reveal() {
+  let reveals = document.querySelectorAll(".reveal");
+  for (let i = 0; i < reveals.length; i++) {
+    let windowHeight = window.innerHeight;
+    let elementTop = reveals[i].getBoundingClientRect().top;
+    let elementVisible = 150;
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
+
 //
 // JavaScript function to toggle scrolling behavior when the button is clicked
 //
@@ -254,4 +290,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+//
+// MOBILE ONLY, navLinks menu 
+//
+let navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+navLinks.style.right = "0";
+
+}
+function hideMenu(){
+navLinks.style.right = "-200px";
+
+}
 
