@@ -6,10 +6,12 @@ const cartButton = document.getElementById("cart-button");
 const cartCount = document.querySelector(".cart-count");
 const cartTotalPrice = document.querySelector(".cart-total-price");
 const cartOverlay = document.getElementById("cart-overlay");
+const emptyCartDivEffect = document.querySelector(".emptyCartEffect");
+
 
 // Retrieve the cart data and total price from localStorage or initialize empty values
-var cart = JSON.parse(localStorage.getItem("cart")) || [];
-var totalPrice = parseFloat(localStorage.getItem("totalPrice")) || 0;
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let totalPrice = parseFloat(localStorage.getItem("totalPrice")) || 0;
 
 
 
@@ -18,13 +20,13 @@ var totalPrice = parseFloat(localStorage.getItem("totalPrice")) || 0;
 addToCartButtons.forEach(function (button) {
   button.addEventListener("click", function (event) {
     // Get the product details
-    var productContainer = event.target.parentNode;
-    var productName = productContainer.querySelector("h2").textContent;
-    var productPrice = parseFloat(productContainer.querySelector(".price").textContent.replace("Price: $", ""));
-    var productImage = productContainer.querySelector("img").src;
+    let productContainer = event.target.parentNode;
+    let productName = productContainer.querySelector("h2").textContent;
+    let productPrice = parseFloat(productContainer.querySelector(".price").textContent.replace("Price: $", ""));
+    let productImage = productContainer.querySelector("img").src;
 
     // Create a new product object
-    var product = {
+    let product = {
       name: productName,
       price: productPrice,
       image: productImage,
@@ -32,7 +34,7 @@ addToCartButtons.forEach(function (button) {
     };
 
     // Check if the product already exists in the cart
-    var existingProduct = cart.find(function (item) {
+    let existingProduct = cart.find(function (item) {
       return item.name === productName;
     });
 
@@ -64,7 +66,7 @@ cartButton.addEventListener("click", function () {
   // Check if the cart is empty
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = "";
-    var emptyCartDiv = document.createElement("div");
+    let emptyCartDiv = document.createElement("div");
     emptyCartDiv.classList.add("empty-Cart-Message");
     emptyCartDiv.textContent = "Your cart is empty";
     cartItemsContainer.appendChild(emptyCartDiv);
@@ -99,7 +101,7 @@ cartButton.addEventListener("click", function () {
       
         // Check if the cart is empty
         if (cart.length === 0) {
-          var emptyCartDiv = document.createElement("div");
+          let emptyCartDiv = document.createElement("div");
           emptyCartDiv.classList.add("empty-Cart-Message");
           emptyCartDiv.textContent = "Your cart is empty";
           cartItemsContainer.appendChild(emptyCartDiv);
@@ -118,29 +120,29 @@ cartButton.addEventListener("click", function () {
           // Iterate over the cart array and display each item
           cart.forEach(function (item, index) {
             
-            var itemElement = document.createElement("div");
+            let itemElement = document.createElement("div");
             itemElement.classList.add("cart-item-container");
 
-            var imageElement = document.createElement("img");
+            let imageElement = document.createElement("img");
             imageElement.src = item.image; // Set the image source
             imageElement.alt = "Product Image";
             imageElement.classList.add("cart-item-image");
 
-            var itemElement2 = document.createElement("div");
+            let itemElement2 = document.createElement("div");
             itemElement2.classList.add("cart-item-details");
 
-            var cartItemName = document.createElement("h4");
+            let cartItemName = document.createElement("h4");
             cartItemName.classList.add("cart-item-name");
             cartItemName.textContent = item.name;
 
-            var cartItemPrice  = document.createElement("span");
+            let cartItemPrice  = document.createElement("span");
             cartItemPrice.classList.add("cart-item-price");
             cartItemPrice.textContent = " - $" + item.price.toFixed(2);
 
-            var quantityContainer = document.createElement("div");
+            let quantityContainer = document.createElement("div");
             quantityContainer.classList.add("cart-item-quantity");
       
-            var decreaseButton = document.createElement("button");
+            let decreaseButton = document.createElement("button");
             decreaseButton.textContent = "-";
             decreaseButton.classList.add("quantity-decrease");
             decreaseButton.addEventListener("click", function () {
@@ -154,10 +156,10 @@ cartButton.addEventListener("click", function () {
               }
             });
       
-            var quantityValue = document.createElement("span");
+            let quantityValue = document.createElement("span");
             quantityValue.textContent = item.quantity;
       
-            var increaseButton = document.createElement("button");
+            let increaseButton = document.createElement("button");
             increaseButton.textContent = "+";
             increaseButton.classList.add("quantity-increase");
             
@@ -181,7 +183,7 @@ cartButton.addEventListener("click", function () {
             
             
 
-            var deleteButton = document.createElement("button");
+            let deleteButton = document.createElement("button");
             deleteButton.textContent = "Remove";
             deleteButton.classList.add("delete-button");
             deleteButton.addEventListener("click", function () {
@@ -193,7 +195,7 @@ cartButton.addEventListener("click", function () {
               // Check if the cart is empty
               if (cart.length === 0) {
                 cartItemsContainer.innerHTML = "";
-                var emptyCartDiv = document.createElement("div");
+                let emptyCartDiv = document.createElement("div");
                 emptyCartDiv.classList.add("empty-Cart-Message");
                 emptyCartDiv.textContent = "Your cart is empty";
                 cartItemsContainer.appendChild(emptyCartDiv);
@@ -234,23 +236,28 @@ cartButton.addEventListener("click", function () {
       calculateTotalPrice();
       // Check if cart is empty and display checkout button or empty message
       // Attach event listener to the checkout button
-      var checkoutButton = document.querySelector(".checkout-button");
+      let checkoutButton = document.querySelector(".checkout-button");
+      
       if (checkoutButton) {
+        
         checkoutButton.addEventListener("click", function () {
+          
           if (cart.length > 0) {
             // Perform checkout functionality
             window.location.href = "checkout.html";
           } else {
-            // Display alert if cart is empty
-            alert("There are no products added in the cart...");
-          }
+            emptyCartDivEffect.display = "block";
+            emptyCartDivEffect.style.animation = "shake 1.5s";
+            cartItemsContainer.appendChild(emptyCartDivEffect);
+            setTimeout ( function(){emptyCartDivEffect.display = "none";}, 3000);
+            }
         });
 }
 }
       
 // Function to update the cart count
 function updateCartCount() {
-  var totalCount = cart.reduce(function (sum, item) {
+  let totalCount = cart.reduce(function (sum, item) {
     return sum + item.quantity;
   }, 0);
 
@@ -287,59 +294,6 @@ updateCartCount();
 
 
 //
-//Price range slide bar
-//
-//
-//document.addEventListener("DOMContentLoaded", function() {
-//// Get the price range input and price value element
-//var priceRange = document.getElementById("price");
-//var priceValue = document.getElementById("price-value");
-//
-//// Update the price value when the price range input value changes
-//priceRange.addEventListener("input", function() {
-//    var minPrice = 10; // Minimum price value
-//    var maxPrice = 100; // Maximum price value
-//    var selectedPrice = parseInt(priceRange.value);
-//
-//    // Calculate the actual price range based on the input value
-//    var actualMinPrice = minPrice + Math.floor((selectedPrice / 100) * (maxPrice - minPrice));
-//     var actualMaxPrice = maxPrice;
-//
-//    // Update the price value element with the selected price range
-//     priceValue.textContent = "$" + actualMinPrice + " - $" + actualMaxPrice;
-// });
-//});
-//
-//
-// Sector Filters
-//
-//
-//document.addEventListener("DOMContentLoaded", function() {
-//    // Get the form and apply filters button
-//    var form = document.querySelector("form");
-//    var applyFiltersButton = document.querySelector("#apply-filters");
-//
-//    // Add event listener to the "Apply Filters" button
-//    applyFiltersButton.addEventListener("click", function(event) {
-//        event.preventDefault(); // Prevent form submission
-//
-//        // Get the selected category and price range values
-//        var selectedCategory = document.querySelector("#category").value;
-//        var selectedPriceRange = document.querySelector("#price").value;
-//
-//        // Perform filtering logic based on the selected values
-//        // ...
-//        // Replace this code with your own filtering logic
-//        // For example, you can hide/show products based on category and price range
-//
-//        // Display filtered results or update the page accordingly
-//        // ...
-//        // Replace this code with your own code to display filtered results
-//    });
-//});
-//
-
-//
 //Scroll to the top function
 //
 
@@ -351,38 +305,17 @@ function scrollToTop() {
 }
 
 //
-//Function for poping up the scroll-to-top button
-//
-
-window.addEventListener("scroll", function () {
-  const toTheTop = document.getElementById("to-the-top");
-  let section = document.getElementById("contacts"); 
-
-  // Get the height of the next section
-  const sectionHeight = section.offsetHeight;
-  // Get the current scroll position
-  const scrollPosition = window.scrollY;
-
-  // Add or remove the "scrolled" class based on the scroll position
-  if (scrollPosition >= sectionHeight) {
-    toTheTop.style.display = "block";
-  } else {
-    toTheTop.style.display = "none";
-  }
-});
-
-//
 //Navigation Bar functions for mobile + Smooth scrolling function
 //
 
-var navLinks = document.getElementById("navLinks");
+let navLinks = document.getElementById("navLinks");
 		function showMenu(){
 		navLinks.style.right = "0";
 		}
 		function hideMenu(){
 		navLinks.style.right = "-200px";
 		}
-		var scroll = new SmoothScroll('a[href*="#"]', {
+		let scroll = new SmoothScroll('a[href*="#"]', {
 		speed: 1000,
 		speedAsDuration: true
 		});
@@ -486,6 +419,6 @@ toggleScrollOnClick();
 
 //
 // Retrieve the cart data and total price from localStorage or initialize empty values
-var cashoutItems = JSON.parse(localStorage.getItem("cart")) || [];
-var cashoutTotalPrice = parseFloat(localStorage.getItem("totalPrice")) || 0;
+let cashoutItems = JSON.parse(localStorage.getItem("cart")) || [];
+let cashoutTotalPrice = parseFloat(localStorage.getItem("totalPrice")) || 0;
 
