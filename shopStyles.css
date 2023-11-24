@@ -293,7 +293,22 @@ button:hover{
 	text-align: center;
 	height: 80px;
 	border-bottom: 1px solid #ccc;
+	
 }
+.emptyCartEffect{
+	text-align: center;
+}
+@keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(10px);
+    }
+  }
   #cart h1 {
 	margin: 0;
 	padding: 10px 0;
@@ -386,11 +401,8 @@ button:hover{
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 99;
-	
   }
-
-
-  #contacts{
+#contacts{
 	padding: 100px 0;
 	background: #efefef;
 	position: relative;
@@ -582,6 +594,9 @@ footer p {
 	}
 	.terms-and-conditions:hover{
 		transform: translateY(0px);
+	}
+	footer p {
+		font-size: 14px;
 	}
 	.scroll-to-top {
 		z-index: 97;
