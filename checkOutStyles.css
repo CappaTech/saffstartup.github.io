@@ -369,6 +369,28 @@ input[type="checkbox"]:checked + label {
   background-color: #0056b3;
 }
 
+#order-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#summary-items ul,
+#summary-customer ul {
+  list-style: none;
+  padding: 0;
+}
+
+#summary-items li,
+#summary-customer li {
+  margin-bottom: 5px;
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 .button-next{
   width: 150px;
   margin-left: auto;
