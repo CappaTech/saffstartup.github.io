@@ -138,6 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnToDeliveryPayment = document.getElementById("delivery-payment");
     const btnToSummary = document.getElementById("btn-to-summary");
     const btnGoBack = document.getElementById("btn-back");
+    const btnPlaceOrder = document.getElementById("btn-place-order");
+
+    let selectedPaymentMethod = "";
     
     // Get all checkout step sections
     const stepBilling = document.getElementById("step-billing");
@@ -178,16 +181,76 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     btnToCardPayment.addEventListener("click", function () {
+      selectedPaymentMethod = 'card';
       stepCardPayment.classList.remove("hidden");
       stepBilling.classList.add("hidden");
       btnToSummary.style.display="block";
     });
 
     btnToDeliveryPayment.addEventListener("click", function () {
+      selectedPaymentMethod = 'delivery';
       stepBilling.classList.remove("hidden");
       stepCardPayment.classList.add("hidden");
       btnToSummary.style.display="block";
     });
+
+    function generateOrderSummary() {
+      const itemsContainer = document.getElementById('summary-items');
+      const customerContainer = document.getElementById('summary-customer');
+      const totalContainer = document.getElementById('summary-total');
+
+      itemsContainer.innerHTML = '';
+      customerContainer.innerHTML = '';
+
+      const itemsList = document.createElement('ul');
+      cart.forEach(function (item) {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} x${item.quantity} - ${(item.price * item.quantity).toFixed(2)}лв.`;
+        itemsList.appendChild(li);
+      });
+      itemsContainer.appendChild(itemsList);
+
+      const activeForm = selectedPaymentMethod === 'card' ? document.getElementById('payment-form') : document.getElementById('billing-form');
+      const firstName = activeForm.querySelector('#first-name').value;
+      const lastName = activeForm.querySelector('#last-name').value;
+      const phone = activeForm.querySelector('#phone-number').value;
+      const email = activeForm.querySelector('#e-mail').value;
+      const city = activeForm.querySelector('#city').value;
+      const address = activeForm.querySelector('#address').value;
+      const zip = activeForm.querySelector('#zip').value;
+
+      let shippingMethod = '';
+      if (selectedPaymentMethod === 'card') {
+        if (document.getElementById('card-payment-DelToAddress').checked) {
+          shippingMethod = 'Delivery to address';
+        } else if (document.getElementById('card-payment-DelToOffice').checked) {
+          shippingMethod = 'Delivery to office';
+        }
+      } else {
+        if (document.getElementById('delivery-payment-DelToAddress').checked) {
+          shippingMethod = 'Delivery to address';
+        } else if (document.getElementById('delivery-payment-DelToOffice').checked) {
+          shippingMethod = 'Delivery to office';
+        }
+      }
+
+      const infoList = document.createElement('ul');
+      infoList.innerHTML =
+        `<li>Name: ${firstName} ${lastName}</li>` +
+        `<li>Phone: ${phone}</li>` +
+        `<li>Email: ${email}</li>` +
+        `<li>City: ${city}</li>` +
+        `<li>Address: ${address}</li>` +
+        `<li>ZIP: ${zip}</li>` +
+        `<li>Payment Method: ${selectedPaymentMethod === 'card' ? 'Card payment' : 'Cash on delivery'}</li>` +
+        `<li>Shipping: ${shippingMethod}</li>`;
+      customerContainer.appendChild(infoList);
+
+      const total = cart.reduce(function (sum, item) {
+        return sum + item.price * item.quantity;
+      }, 0);
+      totalContainer.textContent = 'Total: ' + total.toFixed(2) + 'лв.';
+    }
     //
     //Function to check if required fields are filled
     // 
@@ -213,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
           stepSummary.classList.remove("hidden");
           stepBilling.classList.add("hidden");
           stepPayment.classList.add("hidden");
+          generateOrderSummary();
         }, 3000);
       }
     }
@@ -234,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
           stepSummary.classList.remove("hidden");
           stepBilling.classList.add("hidden");
           stepPayment.classList.add("hidden");
+          generateOrderSummary();
         }, 3000);
       }
     }else{
@@ -246,6 +311,21 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!checkRequiredFields()) {
         event.preventDefault(); // Prevent submitting the form
       }
+    });
+
+    btnGoBack.addEventListener('click', function () {
+      stepSummary.classList.add('hidden');
+      if (selectedPaymentMethod === 'card') {
+        stepPayment.classList.remove('hidden');
+      } else {
+        stepBilling.classList.remove('hidden');
+      }
+    });
+
+    btnPlaceOrder.addEventListener('click', function () {
+      alert('Thank you for your order!');
+      localStorage.removeItem('cart');
+      window.location.href = 'index.html';
     });
   });
   
