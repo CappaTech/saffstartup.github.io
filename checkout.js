@@ -333,26 +333,3 @@ function preventHorizontalScroll() {
     }
   });
 
-  document.getElementById("submit-payment").addEventListener("click", function () {
-    // Get the credit card data from the form
-    const cardNumber = document.getElementById("card-number").value;
-    const expirationDate = document.getElementById("expiry-date").value;
-    const cvv = document.getElementById("cvv").value;
-  
-    // Create a payment token or use a payment gateway library
-    // Here's a simplified example using Stripe
-    stripe.createToken(cardNumber, expirationDate, cvv).then(function(result) {
-      if (result.error) {
-        // Handle errors, show error message to the user
-        console.error(result.error.message);
-      } else {
-        // Send the payment token to your server for processing
-        const paymentToken = result.token.id;
-        // Make an API request to your server with the payment token
-        // Your server will then process the payment through the payment gateway
-        // and handle the authorization and transaction
-      }
-    });
-  });
-  
-
