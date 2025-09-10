@@ -246,10 +246,10 @@ cartButton.addEventListener("click", function () {
             // Perform checkout functionality
             window.location.href = "checkout.html";
           } else {
-            emptyCartDivEffect.display = "block";
+            emptyCartDivEffect.style.display = "block";
             emptyCartDivEffect.style.animation = "shake 1.5s";
             cartItemsContainer.appendChild(emptyCartDivEffect);
-            setTimeout ( function(){emptyCartDivEffect.display = "none";}, 3000);
+            setTimeout ( function(){emptyCartDivEffect.style.display = "none";}, 3000);
             }
         });
 }
